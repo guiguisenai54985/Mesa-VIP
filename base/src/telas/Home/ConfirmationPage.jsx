@@ -4,15 +4,15 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, Alert } 
 const ConfirmationPage = ({ route, navigation }) => {
   const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
 
-  // Função para navegar para a página inicial
+
   const handleEditPress = () => {
-    navigation.navigate('Pagina'); // Certifique-se de que 'Home' é o nome correto da sua tela inicial
+    navigation.navigate('Pagina'); 
   };
 
-  // Função para exibir a mensagem de sucesso
+  //  exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
-    navigation.navigate('Home');
+    navigation.navigate('MesaVIP');
   };
 
   return (
@@ -37,7 +37,7 @@ const ConfirmationPage = ({ route, navigation }) => {
 
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
-          {/* Adicione suas imagens aqui */}
+          
           <Image source={{ uri: 'https://i.pinimg.com/736x/86/13/0b/86130b332e70224214159e6b26349340.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/37/87/b9/3787b9754b75803a9268fef593f07a50.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/9a/75/35/9a7535b180a18390531bf2d0ac41ba7d.jpg' }} style={styles.logo} />

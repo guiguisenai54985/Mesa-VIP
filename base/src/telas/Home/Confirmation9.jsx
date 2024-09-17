@@ -4,12 +4,12 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, Alert } 
 const Confirmation9 = ({ route, navigation }) => {
   const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
 
-  // Função para navegar para a página inicial
+  
   const handleEditPress = () => {
-    navigation.navigate('Pagina'); // Certifique-se de que 'Home' é o nome correto da sua tela inicial
+    navigation.navigate('Pagina'); 
   };
 
-  // Função para exibir a mensagem de sucesso
+  //  exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
     navigation.navigate('Home');
@@ -37,12 +37,12 @@ const Confirmation9 = ({ route, navigation }) => {
 
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
-          {/* Adicione suas imagens aqui */}
-          <Image source={{ uri: 'https://i.pinimg.com/736x/86/13/0b/86130b332e70224214159e6b26349340.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/37/87/b9/3787b9754b75803a9268fef593f07a50.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/9a/75/35/9a7535b180a18390531bf2d0ac41ba7d.jpg' }} style={styles.logo} />
+          
+        <Image source={{ uri: 'https://i.pinimg.com/564x/d8/04/b5/d804b5318d4bedbfe18b7e3308c26d68.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/73/3f/5c/733f5c25e62987e1f8f2b325d755d67b.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/f5/66/91/f566913b41d652504efed62dc91c884e.jpg' }} style={styles.logo} />
         </View>
-        <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨! </Text>
+        <Text style={styles.footerText}>𝑪𝒉𝒖𝒓𝒓𝒂𝒔𝒄𝒐 𝒂𝒈𝒓𝒂𝒅𝒆𝒄𝒆 𝒑𝒐𝒓 𝒆𝒔𝒄𝒐𝒍𝒉𝒆𝒓 𝒏𝒐𝒔𝒔𝒐 𝒓𝒆𝒔𝒕𝒂𝒖𝒓𝒂𝒏𝒕𝒆. 𝑬𝒔𝒑𝒆𝒓𝒂𝒎𝒐𝒔 𝒒𝒖𝒆 𝒕𝒆𝒏𝒉𝒂 𝒖𝒎𝒂 𝒆𝒙𝒑𝒆𝒓𝒊𝒆̂𝒏𝒄𝒊𝒂 𝒊𝒏𝒄𝒓𝒊́𝒗𝒆𝒍! </Text>
       </View>
     </SafeAreaView>
   );

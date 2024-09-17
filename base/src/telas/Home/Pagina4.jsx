@@ -1,9 +1,9 @@
-// Pagina.js
+
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-const Pagina = ({ route, navigation }) => {
+const Pagina4 = ({ route, navigation }) => {
   // Receber dados da reserva se existirem
   const { name: initialName, numPeople: initialNumPeople, phone: initialPhone, selectedDate: initialDate, selectedTime: initialTime } = route.params || {};
 
@@ -41,7 +41,7 @@ const Pagina = ({ route, navigation }) => {
       return;
     }
 
-    navigation.navigate('ConfirmationPage', {
+    navigation.navigate('Confirmation4', {
       name,
       numPeople,
       phone,
@@ -191,4 +191,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Pagina;
+export default Pagina4;

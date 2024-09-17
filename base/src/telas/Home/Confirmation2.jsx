@@ -4,11 +4,9 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, Alert } 
 const Confirmation2 = ({ route, navigation }) => {
   const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
 
-  
   const handleEditPress = () => {
     navigation.navigate('Pagina2'); 
   };
-
 
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
@@ -37,12 +35,12 @@ const Confirmation2 = ({ route, navigation }) => {
 
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
-          {/* Adicione suas imagens aqui */}
-          <Image source={{ uri: 'https://i.pinimg.com/564x/3e/3c/f0/3e3cf051959800a49ad1da17f506a719.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/3e/3c/f0/3e3cf051959800a49ad1da17f506a719.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/9a/75/35/9a7535b180a18390531bf2d0ac41ba7d.jpg' }} style={styles.logo} />
+    
+          <Image source={{ uri: 'https://i.pinimg.com/564x/5a/8d/1c/5a8d1c9d7f339486917645caa11d42c6.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/02/76/f5/0276f5576196cb3b8053fd78d1abceef.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/6a/26/1e/6a261e5ca19011374f9e91f5e4a5269c.jpg' }} style={styles.logo} />
         </View>
-        <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨! </Text>
+        <Text style={styles.footerText}>𝑿𝒕𝒓𝒆𝒎𝒆 𝒔𝒏𝒂𝒄𝒌𝒔 𝒂𝒈𝒓𝒂𝒅𝒆𝒄𝒆 𝒑𝒐𝒓 𝒆𝒔𝒄𝒐𝒍𝒉𝒆𝒓 𝒏𝒐𝒔𝒔𝒐 𝒓𝒆𝒔𝒕𝒂𝒖𝒓𝒂𝒏𝒕𝒆. 𝑬𝒔𝒑𝒆𝒓𝒂𝒎𝒐𝒔 𝒒𝒖𝒆 𝒕𝒆𝒏𝒉𝒂 𝒖𝒎𝒂 𝒆𝒙𝒑𝒆𝒓𝒊𝒆̂𝒏𝒄𝒊𝒂 𝒊𝒏𝒄𝒓𝒊́𝒗𝒆𝒍! </Text>
       </View>
     </SafeAreaView>
   );
@@ -138,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Confirmation2
+export default Confirmation2;

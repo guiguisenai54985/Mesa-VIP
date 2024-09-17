@@ -1,56 +1,57 @@
-// Pagina.js
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Pagina = ({ route, navigation }) => {
   // Receber dados da reserva se existirem
-  const { name: initialName, numPeople: initialNumPeople, phone: initialPhone, selectedDate: initialDate, selectedTime: initialTime } = route.params || {};
+  const { name: nomeInicial, numPeople: numeroPessoasInicial, phone: telefoneInicial, selectedDate: dataInicial, selectedTime: horaInicial } = route.params || {};
 
-  const [selectedDate, setSelectedDate] = useState(initialDate || '');
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [name, setName] = useState(initialName || '');
-  const [numPeople, setNumPeople] = useState(initialNumPeople || '');
-  const [phone, setPhone] = useState(initialPhone || '');
-  const [selectedTime, setSelectedTime] = useState(initialTime || null);
+  const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
+  const [mostrarSeletorData, setMostrarSeletorData] = useState(false);
+  const [nome, setNome] = useState(nomeInicial || '');
+  const [numeroPessoas, setNumeroPessoas] = useState(numeroPessoasInicial || '');
+  const [telefone, setTelefone] = useState(telefoneInicial || '');
+  const [horaSelecionada, setHoraSelecionada] = useState(horaInicial || null);
 
   useEffect(() => {
     // Atualiza os estados se os parâmetros mudarem
-    setSelectedDate(initialDate || '');
-    setName(initialName || '');
-    setNumPeople(initialNumPeople || '');
-    setPhone(initialPhone || '');
-    setSelectedTime(initialTime || null);
-  }, [initialDate, initialName, initialNumPeople, initialPhone, initialTime]);
+    setDataSelecionada(dataInicial || '');
+    setNome(nomeInicial || '');
+    setNumeroPessoas(numeroPessoasInicial || '');
+    setTelefone(telefoneInicial || '');
+    setHoraSelecionada(horaInicial || null);
+  }, [dataInicial, nomeInicial, numeroPessoasInicial, telefoneInicial, horaInicial]);
 
   const handleDateChange = (event, date) => {
-    setShowDatePicker(false);
+    setMostrarSeletorData(false);
     if (date) {
-      setSelectedDate(date.toISOString().split('T')[0]); // data no formato YYYY-MM-DD
+      setDataSelecionada(date.toISOString().split('T')[0]); // data no formato YYYY-MM-DD
     }
   };
 
   const handleButtonClick = (time) => {
-    setSelectedTime(time);
+    setHoraSelecionada(time);
     Alert.alert('Horário', `Horário ${time} selecionado!`);
   };
 
   const handleSubmit = () => {
-    if (!name || !numPeople || !phone || !selectedDate || !selectedTime) {
+    if (!nome || !numeroPessoas || !telefone || !dataSelecionada || !horaSelecionada) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos e selecione um horário.');
       return;
     }
-
+  
+    
     navigation.navigate('ConfirmationPage', {
-      name,
-      numPeople,
-      phone,
-      selectedDate,
-      selectedTime,
+      name: nome,             
+      numPeople: numeroPessoas, 
+      phone: telefone,         
+      selectedDate: dataSelecionada, 
+      selectedTime: horaSelecionada, 
     });
-
+  
     Alert.alert('Sucesso', 'Reserva realizada com sucesso!');
   };
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -58,7 +59,7 @@ const Pagina = ({ route, navigation }) => {
         <View style={styles.mainContent}>
           <View style={styles.circleBackgroundContainer}>
             <View style={styles.circleContainer}>
-              {['17:00', '18:00', '19:00', '20:00', '21:00','22:00',].map((time, index) => (
+              {['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'].map((time, index) => (
                 <TouchableOpacity 
                   key={index} 
                   style={styles.circle} 
@@ -71,14 +72,14 @@ const Pagina = ({ route, navigation }) => {
           </View>
           <View style={styles.formContainer}>
             <Text style={styles.formTitle}>📝</Text>
-            <TextInput placeholder="Nome Completo" style={styles.input} value={name} onChangeText={setName} />
-            <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numPeople} onChangeText={setNumPeople} />
-            <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={phone} onChangeText={setPhone} />
-            <TouchableOpacity onPress={() => setShowDatePicker(true)}>
+            <TextInput placeholder="Nome Completo" style={styles.input} value={nome} onChangeText={setNome} />
+            <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numeroPessoas} onChangeText={setNumeroPessoas} />
+            <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={telefone} onChangeText={setTelefone} />
+            <TouchableOpacity onPress={() => setMostrarSeletorData(true)}>
               <TextInput 
                 placeholder="Data de Reserva" 
                 style={styles.input} 
-                value={selectedDate}
+                value={dataSelecionada}
                 editable={false}
               />
             </TouchableOpacity>
@@ -86,7 +87,7 @@ const Pagina = ({ route, navigation }) => {
               <Text style={styles.submitButtonText}>Continuar</Text>
             </TouchableOpacity>
           </View>
-          {showDatePicker && (
+          {mostrarSeletorData && (
             <DateTimePicker
               testID="dateTimePicker"
               value={new Date()}
