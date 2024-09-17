@@ -21,6 +21,7 @@ const PaginaHome = ({ navigation }) => {
     navigation.navigate(screenName); // Navega para a tela especificada
   };
 
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -101,7 +102,7 @@ const PaginaHome = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EDE6DB',
+    backgroundColor: '#red',
   },
   scrollView: {
     flex: 1,
