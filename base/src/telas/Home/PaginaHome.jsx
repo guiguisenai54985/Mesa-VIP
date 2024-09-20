@@ -38,55 +38,55 @@ const PaginaHome = ({ navigation }) => {
         />
 
         <View style={styles.tabela}>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos')}>
             <Image
               source={require('../../../res/img/image1.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos2')}>
             <Image
               source={require('../../../res/img/image2.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos3')}>
             <Image
               source={require('../../../res/img/image3.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos4')}>
             <Image
               source={require('../../../res/img/image4.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos5')}>
             <Image
               source={require('../../../res/img/image5.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos6')}>
             <Image
               source={require('../../../res/img/image6.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos7')}>
             <Image
               source={require('../../../res/img/image7.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos8')}>
             <Image
               source={require('../../../res/img/image8.png')}
               style={styles.logo}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Sobre Nos')}>
+          <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos9')}>
             <Image
               source={require('../../../res/img/image9.png')}
               style={styles.logo}

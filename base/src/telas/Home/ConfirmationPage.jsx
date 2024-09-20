@@ -38,9 +38,9 @@ const ConfirmationPage = ({ route, navigation }) => {
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
           
-          <Image source={{ uri: 'https://i.pinimg.com/736x/86/13/0b/86130b332e70224214159e6b26349340.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/37/87/b9/3787b9754b75803a9268fef593f07a50.jpg' }} style={styles.logo} />
-          <Image source={{ uri: 'https://i.pinimg.com/564x/9a/75/35/9a7535b180a18390531bf2d0ac41ba7d.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/736x/2b/e0/70/2be070690890838a7521d5860039814d.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/01/df/b0/01dfb09a43f77e14aaab362440ea6201.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/564x/8f/95/b0/8f95b0d78273dcaffffa96427993e163.jpg' }} style={styles.logo} />
         </View>
         <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨! </Text>
       </View>

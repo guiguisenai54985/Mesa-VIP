@@ -3,17 +3,17 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } 
 
 const SobreNos8 = ({ navigation }) => {
   const aoPressionarTelefone = () => {
-    Linking.openURL(`tel:${'+5511999999999'}`); 
+    Linking.openURL(`tel:${'+5511996666666'}`); 
   };
 
   const aoPressionarEmail = () => {
-    Linking.openURL('mailto:contato@restaurante.com'); 
+    Linking.openURL('mailto:contato@fastfood.com'); 
   };
 
   const aoPressionarLocalizacao = () => {
     const latitude = -23.550520;
     const longitude = -46.633308;
-    const label = 'Restaurante Gourmet';
+    const label = 'Fast Food';
     const url = `geo:${latitude},${longitude}?q=${label}`;
     Linking.openURL(url);
   };
@@ -21,34 +21,32 @@ const SobreNos8 = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={estilos.container}>
       <Image
-        source={{ uri: 'https://www.viajali.com.br/wp-content/uploads/2023/07/restaurantes-sao-paulo-02.png' }} 
+        source={{ uri: 'https://i.pinimg.com/564x/1e/e4/1d/1ee41d069e6851b3d4e5a8198859a6ab.jpg' }} 
         style={estilos.imagem}
       />
-      <Text style={estilos.titulo}>Restaurante Gourmet</Text>
+      <Text style={estilos.titulo}>Fast Food</Text>
 
       <Text style={estilos.descricao}>
-        O Restaurante Gourmet oferece uma experiência culinária única com pratos elaborados por chefs renomados.
-        Estamos localizados no coração da cidade e proporcionamos um ambiente aconchegante para você e sua família.
+        No Fast Food, oferecemos uma variedade deliciosa de hambúrgueres, batatas fritas e refrigerantes. 
+        Perfeito para quem busca uma refeição rápida e saborosa!
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 12:00 - 22:00</Text>
-      <Text style={estilos.textoInfo}>Sábado: 13:00 - 23:00</Text>
-      <Text style={estilos.textoInfo}>Domingo: 13:00 - 21:00</Text>
+      <Text style={estilos.textoInfo}>Todos os dias: 10:00 - 23:00</Text>
 
       <Text style={estilos.tituloSecao}>Localização</Text>
-      <Text style={estilos.textoInfo}>Av. Paulista, 1234, São Paulo, SP</Text>
+      <Text style={estilos.textoInfo}>Av. Rápida, 789, São Paulo, SP</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarLocalizacao}>
         <Text style={estilos.textoBotao}>Ver no mapa</Text>
       </TouchableOpacity>
 
       <Text style={estilos.tituloSecao}>Contato</Text>
-      <Text style={estilos.textoInfo}>Telefone: +55 (11) 99999-9999</Text>
+      <Text style={estilos.textoInfo}>Telefone: +55 (11) 96666-6666</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarTelefone}>
         <Text style={estilos.textoBotao}>Ligar</Text>
       </TouchableOpacity>
 
-      <Text style={estilos.textoInfo}>E-mail: contato@restaurante.com</Text>
+      <Text style={estilos.textoInfo}>E-mail: contato@fastfood.com</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarEmail}>
         <Text style={estilos.textoBotao}>Enviar e-mail</Text>
       </TouchableOpacity>
@@ -57,14 +55,7 @@ const SobreNos8 = ({ navigation }) => {
         style={estilos.botao} 
         onPress={() => navigation.navigate('Pagina')}
       >
-        <Text style={estilos.textoBotao}>Fazer Reserva</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity 
-        style={estilos.botaoHome} 
-        onPress={() => navigation.navigate('PaginaHome')}
-      >
-        <Text style={estilos.textoBotaoHome}>Voltar para Home</Text>
+        <Text style={estilos.textoBotao}>Fazer Pedido</Text>
       </TouchableOpacity>
     </ScrollView>
   );

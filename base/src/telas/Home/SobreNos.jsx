@@ -21,7 +21,7 @@ const SobreNos = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={estilos.container}>
       <Image
-        source={{ uri: 'https://www.viajali.com.br/wp-content/uploads/2023/07/restaurantes-sao-paulo-02.png' }} 
+        source={{ uri: 'https://i.pinimg.com/564x/c2/74/c2/c274c25f58a73db94926c18ef8ed2095.jpg' }} 
         style={estilos.imagem}
       />
       <Text style={estilos.titulo}>Restaurante Gourmet</Text>
@@ -59,7 +59,6 @@ const SobreNos = ({ navigation }) => {
       >
         <Text style={estilos.textoBotao}>Fazer Reserva</Text>
       </TouchableOpacity>
-
     </ScrollView>
   );
 };
@@ -114,7 +113,6 @@ const estilos = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  
 });
 
 export default SobreNos;

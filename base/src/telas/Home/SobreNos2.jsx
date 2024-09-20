@@ -3,17 +3,17 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } 
 
 const SobreNos2 = ({ navigation }) => {
   const aoPressionarTelefone = () => {
-    Linking.openURL(`tel:${'+5511999999999'}`); 
+    Linking.openURL(`tel:${'+5511988888888'}`); 
   };
 
   const aoPressionarEmail = () => {
-    Linking.openURL('mailto:contato@restaurante.com'); 
+    Linking.openURL('mailto:contato@xtremesnacks.com'); 
   };
 
   const aoPressionarLocalizacao = () => {
-    const latitude = -23.550520;
-    const longitude = -46.633308;
-    const label = 'Restaurante Gourmet';
+    const latitude = -23.564224;
+    const longitude = -46.652350;
+    const label = 'X-Treme Snacks';
     const url = `geo:${latitude},${longitude}?q=${label}`;
     Linking.openURL(url);
   };
@@ -21,34 +21,34 @@ const SobreNos2 = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={estilos.container}>
       <Image
-        source={{ uri: 'https://www.viajali.com.br/wp-content/uploads/2023/07/restaurantes-sao-paulo-02.png' }} 
+        source={{ uri: 'https://i.pinimg.com/564x/87/ed/ba/87edba0855ede602c88c36dcd49cbb61.jpg' }} 
         style={estilos.imagem}
       />
-      <Text style={estilos.titulo}>Restaurante Gourmet</Text>
+      <Text style={estilos.titulo}>X-Treme Snacks</Text>
 
       <Text style={estilos.descricao}>
-        O Restaurante Gourmet oferece uma experiência culinária única com pratos elaborados por chefs renomados.
-        Estamos localizados no coração da cidade e proporcionamos um ambiente aconchegante para você e sua família.
+        O X-Treme Snacks é o lugar perfeito para quem busca lanches rápidos e deliciosos. Desde batatas fritas crocantes até hambúrgueres 
+        suculentos, nós temos tudo o que você precisa para saciar sua fome. Venha nos visitar e aproveite o melhor dos fast snacks!
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 12:00 - 22:00</Text>
-      <Text style={estilos.textoInfo}>Sábado: 13:00 - 23:00</Text>
-      <Text style={estilos.textoInfo}>Domingo: 13:00 - 21:00</Text>
+      <Text style={estilos.textoInfo}>Segunda a Sexta: 09:00 - 22:00</Text>
+      <Text style={estilos.textoInfo}>Sábado: 10:00 - 23:00</Text>
+      <Text style={estilos.textoInfo}>Domingo: 12:00 - 21:00</Text>
 
       <Text style={estilos.tituloSecao}>Localização</Text>
-      <Text style={estilos.textoInfo}>Av. Paulista, 1234, São Paulo, SP</Text>
+      <Text style={estilos.textoInfo}>Rua dos Snacks, 789, São Paulo, SP</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarLocalizacao}>
         <Text style={estilos.textoBotao}>Ver no mapa</Text>
       </TouchableOpacity>
 
       <Text style={estilos.tituloSecao}>Contato</Text>
-      <Text style={estilos.textoInfo}>Telefone: +55 (11) 99999-9999</Text>
+      <Text style={estilos.textoInfo}>Telefone: +55 (11) 98888-8888</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarTelefone}>
         <Text style={estilos.textoBotao}>Ligar</Text>
       </TouchableOpacity>
 
-      <Text style={estilos.textoInfo}>E-mail: contato@restaurante.com</Text>
+      <Text style={estilos.textoInfo}>E-mail: contato@xtremesnacks.com</Text>
       <TouchableOpacity style={estilos.botao} onPress={aoPressionarEmail}>
         <Text style={estilos.textoBotao}>Enviar e-mail</Text>
       </TouchableOpacity>
@@ -58,13 +58,6 @@ const SobreNos2 = ({ navigation }) => {
         onPress={() => navigation.navigate('Pagina')}
       >
         <Text style={estilos.textoBotao}>Fazer Reserva</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity 
-        style={estilos.botaoHome} 
-        onPress={() => navigation.navigate('PaginaHome')}
-      >
-        <Text style={estilos.textoBotaoHome}>Voltar para Home</Text>
       </TouchableOpacity>
     </ScrollView>
   );
