@@ -5,7 +5,7 @@ const Confirmation7 = ({ route, navigation }) => {
   const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
 
   const handleEditPress = () => {
-    navigation.navigate('Pagina'); 
+    navigation.navigate('Pagina7'); 
   };
 
   //  exibir a mensagem de sucesso

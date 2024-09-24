@@ -55,7 +55,7 @@ const SobreNos2 = ({ navigation }) => {
 
       <TouchableOpacity 
         style={estilos.botao} 
-        onPress={() => navigation.navigate('Pagina')}
+        onPress={() => navigation.navigate('Pagina2')}
       >
         <Text style={estilos.textoBotao}>Fazer Reserva</Text>
       </TouchableOpacity>

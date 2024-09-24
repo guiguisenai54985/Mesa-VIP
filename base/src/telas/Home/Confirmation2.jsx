@@ -36,7 +36,7 @@ const Confirmation2 = ({ route, navigation }) => {
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
     
-          <Image source={{ uri: 'https://i.pinimg.com/564x/5a/8d/1c/5a8d1c9d7f339486917645caa11d42c6.jpg' }} style={styles.logo} />
+          <Image source={{ uri: 'https://i.pinimg.com/736x/08/ed/61/08ed6180811125610e95fbd4a8d57fbe.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/02/76/f5/0276f5576196cb3b8053fd78d1abceef.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/6a/26/1e/6a261e5ca19011374f9e91f5e4a5269c.jpg' }} style={styles.logo} />
         </View>

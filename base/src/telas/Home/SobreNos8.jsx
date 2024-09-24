@@ -53,7 +53,7 @@ const SobreNos8 = ({ navigation }) => {
 
       <TouchableOpacity 
         style={estilos.botao} 
-        onPress={() => navigation.navigate('Pagina')}
+        onPress={() => navigation.navigate('Pagina8')}
       >
         <Text style={estilos.textoBotao}>Fazer Pedido</Text>
       </TouchableOpacity>

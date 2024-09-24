@@ -10,6 +10,7 @@ import Confirmation6 from "./src/telas/Home/Confirmation6";
 import Confirmation7 from "./src/telas/Home/Confirmation7";
 import Confirmation8 from "./src/telas/Home/Confirmation8";
 import Confirmation9 from "./src/telas/Home/Confirmation9";
+import Pagina from "./src/telas/Home/Pagina";
 import Pagina2 from "./src/telas/Home/Pagina2";
 import Pagina3 from "./src/telas/Home/Pagina3";
 import Pagina4 from "./src/telas/Home/Pagina4";
@@ -57,6 +58,7 @@ const Stack = createStackNavigator();
           <Stack.Screen name="Confirmation7" component={Confirmation7} />
           <Stack.Screen name="Confirmation8" component={Confirmation8} />
           <Stack.Screen name="Confirmation9" component={Confirmation9} />
+          <Stack.Screen name="Pagina" component={Pagina} />
           <Stack.Screen name="Pagina2" component={Pagina2} />
           <Stack.Screen name="Pagina3" component={Pagina3} />
           <Stack.Screen name="Pagina4" component={Pagina4} />

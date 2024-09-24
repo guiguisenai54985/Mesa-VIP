@@ -12,7 +12,7 @@ const ConfirmationPage = ({ route, navigation }) => {
   //  exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
-    navigation.navigate('MesaVIP');
+    navigation.navigate('Home');
   };
 
   return (

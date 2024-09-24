@@ -32,7 +32,7 @@ const SobreNos9 = ({ navigation }) => {
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Terça a Domingo: 12:00 - 22:00</Text>
+      <Text style={estilos.textoInfo}>Todos os dias: 17:00 - 22:00</Text>
 
       <Text style={estilos.tituloSecao}>Localização</Text>
       <Text style={estilos.textoInfo}>Rua do Churrasco, 456, São Paulo, SP</Text>
@@ -53,7 +53,7 @@ const SobreNos9 = ({ navigation }) => {
 
       <TouchableOpacity 
         style={estilos.botao} 
-        onPress={() => navigation.navigate('Pagina')}
+        onPress={() => navigation.navigate('Pagina9')}
       >
         <Text style={estilos.textoBotao}>Fazer Reserva</Text>
       </TouchableOpacity>

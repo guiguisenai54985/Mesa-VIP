@@ -3,55 +3,61 @@ import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, S
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Pagina = ({ route, navigation }) => {
-  // Receber dados da reserva se existirem
-  const { name: nomeInicial, numPeople: numeroPessoasInicial, phone: telefoneInicial, selectedDate: dataInicial, selectedTime: horaInicial } = route.params || {};
+  const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
 
   const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
-  const [mostrarSeletorData, setMostrarSeletorData] = useState(false);
+  const [mostrarDatePicker, setMostrarDatePicker] = useState(false);
   const [nome, setNome] = useState(nomeInicial || '');
-  const [numeroPessoas, setNumeroPessoas] = useState(numeroPessoasInicial || '');
+  const [numPessoas, setNumPessoas] = useState(numPessoasInicial || '');
   const [telefone, setTelefone] = useState(telefoneInicial || '');
-  const [horaSelecionada, setHoraSelecionada] = useState(horaInicial || null);
+  const [horarioSelecionado, setHorarioSelecionado] = useState(horarioInicial || null);
 
   useEffect(() => {
-    // Atualiza os estados se os parâmetros mudarem
     setDataSelecionada(dataInicial || '');
     setNome(nomeInicial || '');
-    setNumeroPessoas(numeroPessoasInicial || '');
+    setNumPessoas(numPessoasInicial || '');
     setTelefone(telefoneInicial || '');
-    setHoraSelecionada(horaInicial || null);
-  }, [dataInicial, nomeInicial, numeroPessoasInicial, telefoneInicial, horaInicial]);
+    setHorarioSelecionado(horarioInicial || null);
+  }, [dataInicial, nomeInicial, numPessoasInicial, telefoneInicial, horarioInicial]);
 
-  const handleDateChange = (event, date) => {
-    setMostrarSeletorData(false);
-    if (date) {
-      setDataSelecionada(date.toISOString().split('T')[0]); // data no formato YYYY-MM-DD
+  const aoMudarData = (evento, data) => {
+    setMostrarDatePicker(false);
+    if (data) {
+      setDataSelecionada(data.toISOString().split('T')[0]);
     }
   };
 
-  const handleButtonClick = (time) => {
-    setHoraSelecionada(time);
-    Alert.alert('Horário', `Horário ${time} selecionado!`);
+  const aoClicarHorario = (horario) => {
+    setHorarioSelecionado(horario);
+    Alert.alert('Horário', `Horário ${horario} selecionado!`);
   };
 
-  const handleSubmit = () => {
-    if (!nome || !numeroPessoas || !telefone || !dataSelecionada || !horaSelecionada) {
+  const aoMudarNumPessoas = (valor) => {
+    const num = parseInt(valor);
+    if (num > 5) {
+      Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 5.');
+    } else {
+      setNumPessoas(valor);
+    }
+  };
+
+  const aoEnviar = () => {
+    if (!nome || !numPessoas || !telefone || !dataSelecionada || !horarioSelecionado) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos e selecione um horário.');
       return;
     }
-  
-    
+
+    // Enviando os dados para a página de confirmação
     navigation.navigate('ConfirmationPage', {
-      name: nome,             
-      numPeople: numeroPessoas, 
-      phone: telefone,         
-      selectedDate: dataSelecionada, 
-      selectedTime: horaSelecionada, 
+      name: nome,
+      numPeople: numPessoas,
+      phone: telefone,
+      selectedDate: dataSelecionada,
+      selectedTime: horarioSelecionado,
     });
-  
+
     Alert.alert('Sucesso', 'Reserva realizada com sucesso!');
   };
-  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,13 +65,13 @@ const Pagina = ({ route, navigation }) => {
         <View style={styles.mainContent}>
           <View style={styles.circleBackgroundContainer}>
             <View style={styles.circleContainer}>
-              {['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'].map((time, index) => (
+              {['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'].map((horario, index) => (
                 <TouchableOpacity 
                   key={index} 
                   style={styles.circle} 
-                  onPress={() => handleButtonClick(time)}
+                  onPress={() => aoClicarHorario(horario)}
                 >
-                  <Text style={styles.circleText}>{time}</Text>
+                  <Text style={styles.circleText}>{horario}</Text>
                 </TouchableOpacity>
               ))}
             </View>
@@ -73,9 +79,9 @@ const Pagina = ({ route, navigation }) => {
           <View style={styles.formContainer}>
             <Text style={styles.formTitle}>📝</Text>
             <TextInput placeholder="Nome Completo" style={styles.input} value={nome} onChangeText={setNome} />
-            <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numeroPessoas} onChangeText={setNumeroPessoas} />
+            <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numPessoas} onChangeText={aoMudarNumPessoas} />
             <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={telefone} onChangeText={setTelefone} />
-            <TouchableOpacity onPress={() => setMostrarSeletorData(true)}>
+            <TouchableOpacity onPress={() => setMostrarDatePicker(true)}>
               <TextInput 
                 placeholder="Data de Reserva" 
                 style={styles.input} 
@@ -83,17 +89,17 @@ const Pagina = ({ route, navigation }) => {
                 editable={false}
               />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+            <TouchableOpacity style={styles.submitButton} onPress={aoEnviar}>
               <Text style={styles.submitButtonText}>Continuar</Text>
             </TouchableOpacity>
           </View>
-          {mostrarSeletorData && (
+          {mostrarDatePicker && (
             <DateTimePicker
               testID="dateTimePicker"
               value={new Date()}
               mode="date"
               display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-              onChange={handleDateChange}
+              onChange={aoMudarData}
             />
           )}
         </View>
