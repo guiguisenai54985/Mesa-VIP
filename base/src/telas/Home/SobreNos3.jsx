@@ -32,9 +32,8 @@ const SobreNos3 = ({ navigation }) => {
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 10:00 - 22:00</Text>
-      <Text style={estilos.textoInfo}>Sábado: 11:00 - 23:00</Text>
-      <Text style={estilos.textoInfo}>Domingo: 11:00 - 21:00</Text>
+      <Text style={estilos.textoInfo}>Segunda a Sexta: 17:00 - 22:00</Text>
+      
 
       <Text style={estilos.tituloSecao}>Localização</Text>
       <Text style={estilos.textoInfo}>Rua dos Hot Dogs, 456, São Paulo, SP</Text>

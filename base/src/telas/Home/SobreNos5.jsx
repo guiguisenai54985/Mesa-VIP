@@ -32,9 +32,7 @@ const SobreNos5 = ({ navigation }) => {
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 11:00 - 23:00</Text>
-      <Text style={estilos.textoInfo}>Sábado: 12:00 - 00:00</Text>
-      <Text style={estilos.textoInfo}>Domingo: 12:00 - 22:00</Text>
+      <Text style={estilos.textoInfo}>Segunda a Sexta: 17:00 - 22:00</Text>
 
       <Text style={estilos.tituloSecao}>Localização</Text>
       <Text style={estilos.textoInfo}>Avenida do Rock, 1010, São Paulo, SP</Text>

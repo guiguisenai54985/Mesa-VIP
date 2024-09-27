@@ -32,9 +32,9 @@ const SobreNos4 = ({ navigation }) => {
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 11:30 - 22:30</Text>
-      <Text style={estilos.textoInfo}>Sábado: 12:00 - 23:30</Text>
-      <Text style={estilos.textoInfo}>Domingo: 12:00 - 21:00</Text>
+      <Text style={estilos.textoInfo}>Segunda a Sexta: 17:00 - 22:00</Text>
+     
+      
 
       <Text style={estilos.tituloSecao}>Localização</Text>
       <Text style={estilos.textoInfo}>Rua Augusta, 765, São Paulo, SP</Text>

@@ -32,9 +32,7 @@ const SobreNos = ({ navigation }) => {
       </Text>
 
       <Text style={estilos.tituloSecao}>Horário de Funcionamento</Text>
-      <Text style={estilos.textoInfo}>Segunda a Sexta: 12:00 - 22:00</Text>
-      <Text style={estilos.textoInfo}>Sábado: 13:00 - 23:00</Text>
-      <Text style={estilos.textoInfo}>Domingo: 13:00 - 21:00</Text>
+      <Text style={estilos.textoInfo}>Segunda a Sexta: 16:00 - 22:00</Text>
 
       <Text style={estilos.tituloSecao}>Localização</Text>
       <Text style={estilos.textoInfo}>Av. Paulista, 1234, São Paulo, SP</Text>
