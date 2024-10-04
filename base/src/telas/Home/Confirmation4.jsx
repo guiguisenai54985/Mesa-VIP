@@ -6,14 +6,21 @@ const Confirmation4 = ({ route, navigation }) => {
 
   
   const handleEditPress = () => {
-    navigation.navigate('Pagina'); 
+    navigation.navigate('Pagina4'); 
   };
 
   //  exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
-    navigation.navigate('Home');
-  };
+    navigation.navigate('ComprovantePage4', {
+        name,
+        numPeople,
+        phone,
+        selectedDate,
+        selectedTime,
+        registrationTime,
+    });
+};
 
   return (
     <SafeAreaView style={styles.container}>

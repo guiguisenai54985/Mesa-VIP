@@ -10,6 +10,15 @@ import Confirmation6 from "./src/telas/Home/Confirmation6";
 import Confirmation7 from "./src/telas/Home/Confirmation7";
 import Confirmation8 from "./src/telas/Home/Confirmation8";
 import Confirmation9 from "./src/telas/Home/Confirmation9";
+import ComprovantePage from "./src/telas/Home/ComprovantePage";
+import ComprovantePage2 from "./src/telas/Home/ComprovantePage2";
+import ComprovantePage3 from "./src/telas/Home/ComprovantePage3";
+import ComprovantePage4 from "./src/telas/Home/ComprovantePage4";
+import ComprovantePage5 from "./src/telas/Home/ComprovantePage5";
+import ComprovantePage6 from "./src/telas/Home/ComprovantePage6";
+import ComprovantePage7 from "./src/telas/Home/ComprovantePage7";
+import ComprovantePage8 from "./src/telas/Home/ComprovantePage8";
+import ComprovantePage9 from "./src/telas/Home/ComprovantePage9";
 import Pagina from "./src/telas/Home/Pagina";
 import Pagina2 from "./src/telas/Home/Pagina2";
 import Pagina3 from "./src/telas/Home/Pagina3";
@@ -58,6 +67,15 @@ const Stack = createStackNavigator();
           <Stack.Screen name="Confirmation7" component={Confirmation7} />
           <Stack.Screen name="Confirmation8" component={Confirmation8} />
           <Stack.Screen name="Confirmation9" component={Confirmation9} />
+          <Stack.Screen name="ComprovantePage" component={ComprovantePage} />
+          <Stack.Screen name="ComprovantePage2" component={ComprovantePage2} />
+          <Stack.Screen name="ComprovantePage3" component={ComprovantePage3} />
+          <Stack.Screen name="ComprovantePage4" component={ComprovantePage4} />
+          <Stack.Screen name="ComprovantePage5" component={ComprovantePage5} />
+          <Stack.Screen name="ComprovantePage6" component={ComprovantePage6} />
+          <Stack.Screen name="ComprovantePage7" component={ComprovantePage7} />
+          <Stack.Screen name="ComprovantePage8" component={ComprovantePage8} />
+          <Stack.Screen name="ComprovantePage9" component={ComprovantePage9} />
           <Stack.Screen name="Pagina" component={Pagina} />
           <Stack.Screen name="Pagina2" component={Pagina2} />
           <Stack.Screen name="Pagina3" component={Pagina3} />
