@@ -12,8 +12,15 @@ const Confirmation5 = ({ route, navigation }) => {
   // exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
-    navigation.navigate('Home');
-  };
+    navigation.navigate('ComprovantePage5', {
+        name,
+        numPeople,
+        phone,
+        selectedDate,
+        selectedTime,
+        registrationTime,
+    });
+};
 
   return (
     <SafeAreaView style={styles.container}>

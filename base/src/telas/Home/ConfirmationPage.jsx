@@ -2,18 +2,24 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity, Alert } from 'react-native';
 
 const ConfirmationPage = ({ route, navigation }) => {
-  const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
-
+  const { name, numPeople, phone, selectedDate, selectedTime, registrationTime } = route.params;
 
   const handleEditPress = () => {
     navigation.navigate('Pagina'); 
   };
 
-  //  exibir a mensagem de sucesso
   const handleContinuePress = () => {
     Alert.alert('Informações salvas com sucesso');
-    navigation.navigate('Home');
-  };
+    navigation.navigate('ComprovantePage', {
+        name,
+        numPeople,
+        phone,
+        selectedDate,
+        selectedTime,
+        registrationTime,
+    });
+};
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,6 +31,7 @@ const ConfirmationPage = ({ route, navigation }) => {
         <Text style={styles.info}>𝐓𝐞𝐥𝐞𝐟𝐨𝐧𝐞: {phone}</Text>
         <Text style={styles.info}>𝐃𝐚𝐭𝐚: {selectedDate}</Text>
         <Text style={styles.info}>𝐇𝐨𝐫𝐚́𝐫𝐢𝐨: {selectedTime}</Text>
+        <Text style={styles.info}>Horario do cadastro: 08:30</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.editButton} onPress={handleEditPress}>
             <Text style={styles.editButtonText}>Editar Reserva</Text>
@@ -37,12 +44,11 @@ const ConfirmationPage = ({ route, navigation }) => {
 
       <View style={styles.footer}>
         <View style={styles.logoContainer}>
-          
           <Image source={{ uri: 'https://i.pinimg.com/736x/2b/e0/70/2be070690890838a7521d5860039814d.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/01/df/b0/01dfb09a43f77e14aaab362440ea6201.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/8f/95/b0/8f95b0d78273dcaffffa96427993e163.jpg' }} style={styles.logo} />
         </View>
-        <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨! </Text>
+        <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨!</Text>
       </View>
     </SafeAreaView>
   );
@@ -58,8 +64,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '60%', // Diminuí a largura do container de reserva
-    padding: 5, // Diminuí o padding
+    width: '60%',
+    padding: 5,
     backgroundColor: '#FFFFFF',
     borderRadius: 10,
     shadowColor: '#000000',
@@ -67,7 +73,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 10,
-    alignSelf: 'center', // Alinha o container ao centro horizontalmente
+    alignSelf: 'center',
   },
   title: {
     fontSize: 17,
@@ -121,12 +127,12 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between', 
-    width: '100%', 
+    justifyContent: 'space-between',
+    width: '100%',
     marginBottom: 10,
   },
   logo: {
-    width: 120, 
+    width: 120,
     height: 120,
     resizeMode: 'contain',
   },
