@@ -35,49 +35,48 @@ const userController = {
         }
     },
     //Criar usuario
-    Cadastro: async (req, res) => {
-        let { id, nome, email, senha } = req.body;
-
-        email = email.toLowerCase();
-
+    createNewUser: async (req, res) => {
         try {
-            if(!email.includes('@')){
-                return res.status(400).json({msg: "O e-mail fornecido é invalido"})
-            }
-            
-            const sql = await clientController.getByEmail(email)
+            const { id, nome, sobrenome, email, senha, imagemBase64 } = req.body;
+            console.log(req.body)
+
+            const sql = await clientController.getByEmail(email);
 
             if (sql.length > 0) {
-                res.status(401).json({ msg: "O email já está cadastrado no DB" })
-            }
-            else {
-                await clientController.registerUser(id, nome, email, senha);
-                res.status(201).json({ msg: "Usuario cadastrado com sucesso" })
+                res.status(401).json({ msg: 'O email já existe no banco de dados' });
+
 
             }
-        }
-        catch (error) {
-            return error
+
+            else {
+                await clientController.registerUser(id, nome, sobrenome, email, senha, imagemBase64);
+                res.status(201).json({ msg: 'Usuário cadastrado com sucesso' });
+            }
+        } catch (error) {
+            console.error('Erro ao registrar usuário com a imagem', error);
+            return res.status(500).json({ msg: 'Erro no servidor' })
         }
     },
 
     login: async (req, res) => {
         let { email, senha } = req.body;
 
-        senha = senha.toString();
-
         try {
             const sql = await clientController.validateLogin(email, senha);
 
-            if (sql.length > 0) {
-                res.status(200).json({ msg: "Email e senha validados com sucesso!!!" });
+
+            if (sql.length > 0 && sql[0].senha === senha) {
+                res.status(200).json(sql[0]);
+
             }
+
             else {
                 res.status(401).json({ msg: "Email ou senha incorretos" });
             }
         }
         catch (error) {
             if (error) {
+                console.log(error)
                 res.status(500).json(error);
             }
         }
@@ -120,23 +119,68 @@ const userController = {
         }
     },
 
-    sintomas: async (req, res) => {
-        const { id, nome, frequencia} = req.body;
+    resetInfo: async (req, res) => {
+        let { nome, sobrenome, email, id } = req.body
 
-        console.log(req.body);
+        email = email.toLowerCase();
+
         try {
-            //const sql = await clientController.getByID(req.params.id);
-
-            
-      
-                await clientController.sintoma( id, nome, frequencia);
-                res.status(201).json({ msg: "Sintoma cadastrado com sucesso" });
+            await clientController.updateInfo(nome, sobrenome, email, id);
+            res.status(200).json({ msg: 'senha atualizada com sucesso' });
         }
         catch (error) {
-            console.log(error);
-            res.status(500).json({ msg: "ocorreu um erro durante o registro do sintoma" })
+            console.log('erro ao redfinir a senha')
+            res.status(500).json({ msg: 'erro no servidor' })
         }
-    }
+    },
+
+
+    registerImageProfile: async (req, res) => {
+        try {
+            let { id, imagemBase64 } = req.body;
+
+            console.log(req.body)
+
+            await clientController.registerImage(id, imagemBase64);
+            res.status(201).json({ msg: 'Foto de perfil alterada com sucesso' });
+
+        } catch (error) {
+            console.error('Erro ao registrar a imagem', error);
+            return res.status(500).json({ msg: 'Erro no servidor' })
+        }
+    },
+
+    updateUser: async (req, res) => {
+        const { id, imagemBase64 } = req.body;
+        try {
+            const sql = await clientController.getByID(id)
+
+            if (sql.length > 0) {
+                await clientController.updateUser(imagemBase64, id)
+                res.status(200).json({ msg: "Atualizado com sucesso" })
+            }
+            else {
+                res.status(401).json({ msg: "O id nao existe na base de dados" })
+            }
+        }
+        catch (erro) {
+            if (erro) {
+                res.status(500).json({ msg: "Erro no servidor" + erro })
+            }
+        }
+    },
+
+    deletePedido: async (req, res) => {
+        try {
+            const { id } = req.params;
+            await clientController.removePedido(id);
+            res.status(200).json({ msg: "Reserva cancelada com sucesso" });
+        } catch (error) {
+            console.error('Erro ao cancelar a reserva:', error);
+            res.status(500).json({ error: "Erro ao cancelar a reserva" });
+        }
+    },
+
 };
 
 module.exports = userController;

@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SafeAreaView, View, Image } from "react-native";
+import { SafeAreaView, View, Image, StyleSheet } from "react-native";
 import { Text, } from '@rneui/themed';
 import { Button } from '@rneui/themed';
-import Cadastro from './Cadastro';
 import Login from './Login';
+import Cadastro from './Cadastro';
 
 const LogHome = ({ navigation }) => {
 
     return (
-
         <SafeAreaView style={Styles.container}>
-            <Image source={require('../../../res/img/MesaVIP/imagens.png')} /> 
+            <Image source={require('./../../../res/img/fundo.png')} /> 
             <View style={Styles.containerStyle}>
                 <Button
                     title="REGISTRE-SE"
@@ -21,7 +20,7 @@ const LogHome = ({ navigation }) => {
                         fontWeight: 'bold',
                         color: 'black', fontSize: 13,
                     }}
-                    onPress={() => navigation.navigate(Signin)}
+                    onPress={() => navigation.navigate(Cadastro)}
                 />
                 <Button
                     title="ENTRAR"
@@ -30,13 +29,8 @@ const LogHome = ({ navigation }) => {
                     onPress={() => navigation.navigate(Login)}
                 />
             </View>
-
-
-
         </SafeAreaView>
-
     );
-
 }
 
 const Styles = StyleSheet.create({
@@ -78,5 +72,4 @@ const Styles = StyleSheet.create({
     },
   
   });
-export default LogHome
-
+export default LogHome;

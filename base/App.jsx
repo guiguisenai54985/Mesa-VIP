@@ -39,17 +39,21 @@ import SobreNos8 from "./src/telas/Home/SobreNos8";
 import SobreNos9 from "./src/telas/Home/SobreNos9";
 import PaginaHome from "./src/telas/Home/PaginaHome";
 import LogHome from "./src/telas/Home/LogHome";
+import Login from "./src/telas/Home/Login";
+import Cadastro from "./src/telas/Home/Cadastro";
 
 
 const Stack = createStackNavigator();
   
     export default function App() {
-        //<Cadastro/>
     return (
       <NavigationContainer>
         
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="LogHome">
         <Stack.Screen options={{ headerStyle: { backgroundColor: '#EDE6DB' }, headerTintColor: '#EDE6DB', }} name="Home" component={PaginaHome} />
+          <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 }}}/>
+          <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70}, headerTitleStyle: { color: 'black',  fontSize: 25,  fontWeight: 800,},  headerTitleAlign: 'center', }}/>
+          <Stack.Screen name="Cadastro" component={Cadastro} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70}, headerTitleStyle: { color: 'black',  fontSize: 25,  fontWeight: 800,},  headerTitleAlign: 'center', }}/>
           <Stack.Screen name="SobreNos" component={SobreNos} />
           <Stack.Screen name="SobreNos2" component={SobreNos2} />
           <Stack.Screen name="SobreNos3" component={SobreNos3} />
