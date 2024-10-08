@@ -90,6 +90,7 @@ const Stack = createStackNavigator();
           <Stack.Screen name="Pagina7" component={Pagina7} />
           <Stack.Screen name="Pagina8" component={Pagina8} />
           <Stack.Screen name="Pagina9" component={Pagina9} />
+      
          
           
         </Stack.Navigator>

@@ -63,8 +63,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '60%', // Diminuí a largura do container de reserva
-    padding: 5, // Diminuí o padding
+    width: '60%',
+    padding: 5,
     backgroundColor: '#FFFFFF',
     borderRadius: 10,
     shadowColor: '#000000',
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 10,
     elevation: 10,
-    alignSelf: 'center', // Alinha o container ao centro horizontalmente
+    alignSelf: 'center',
   },
   title: {
     fontSize: 17,
