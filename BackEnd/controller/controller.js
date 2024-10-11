@@ -35,34 +35,34 @@ const userController = {
         }
     },
     //Criar usuario
-    createNewUser: async (req, res) => {
-        try {
-            const { id, nome, sobrenome, email, senha, imagemBase64 } = req.body;
-            console.log(req.body)
+    // createNewUser: async (req, res) => {
+    //     try {
+    //         const { id, nome, sobrenome, email, senha } = req.body;
+    //         console.log(req.body)
 
-            const sql = await clientController.getByEmail(email);
+    //         const sql = await clientController.getByEmail(email);
 
-            if (sql.length > 0) {
-                res.status(401).json({ msg: 'O email já existe no banco de dados' });
+    //         if (sql.length > 0) {
+    //             res.status(401).json({ msg: 'O email já existe no banco de dados' });
 
 
-            }
+    //         }
 
-            else {
-                await clientController.registerUser(id, nome, sobrenome, email, senha, imagemBase64);
-                res.status(201).json({ msg: 'Usuário cadastrado com sucesso' });
-            }
-        } catch (error) {
-            console.error('Erro ao registrar usuário com a imagem', error);
-            return res.status(500).json({ msg: 'Erro no servidor' })
-        }
-    },
+    //         else {
+    //             await clientController.registerUser(id, nome, sobrenome, email, senha);
+    //             res.status(201).json({ msg: 'Usuário cadastrado com sucesso' });
+    //         }
+    //     } catch (error) {
+    //         console.error('Erro ao registrar usuário com a imagem', error);
+    //         return res.status(500).json({ msg: 'Erro no servidor' })
+    //     }
+    // },
 
     login: async (req, res) => {
         let { email, senha } = req.body;
 
         try {
-            const sql = await clientController.validateLogin(email, senha);
+            const sql = await clientController.validateLoginUser(email, senha);
 
 
             if (sql.length > 0 && sql[0].senha === senha) {
@@ -178,6 +178,26 @@ const userController = {
         } catch (error) {
             console.error('Erro ao cancelar a reserva:', error);
             res.status(500).json({ error: "Erro ao cancelar a reserva" });
+        }
+    },
+
+    cadastroUser: async(req, res) => {
+        const {id, nome, sobrenome, email, senha} = req.body
+
+        try{
+            const sql = await  clientController.getByEmail(email);
+
+            if(sql.length > 0){
+                res.status(401).json({msg: 'O email já está cadastrado na base de dados, insira um email diferente'})
+            }
+            else{
+                await clientController.registerUser(id, nome, sobrenome, email, senha);
+                res.status(201).json({msg: ' Usuário cadastrado com sucesso'});
+            }
+        }
+        catch(error){
+            console.log(error);
+            res.status(500).json({msg:'Ocorreu um erro durante o registro do usuário'});
         }
     },
 
