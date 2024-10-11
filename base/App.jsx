@@ -41,6 +41,8 @@ import PaginaHome from "./src/telas/Home/PaginaHome";
 import LogHome from "./src/telas/Home/LogHome";
 import Login from "./src/telas/Home/Login";
 import Cadastro from "./src/telas/Home/Cadastro";
+import ResetInfo from "./src/telas/Home/Perfil";
+import ResetSenha from "./src/telas/Home/Reset";
 
 const Stack = createStackNavigator();
 
@@ -49,8 +51,7 @@ export default function App() {
     <NavigationContainer>
 
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={PaginaHome} options={{
-          title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center',}} />
+        <Stack.Screen name="Home" component={PaginaHome} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center',}} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Cadastro" component={Cadastro} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
@@ -100,11 +101,9 @@ export default function App() {
               height: 70,
             },
             headerTitleStyle: {
-
               color: 'black',
               fontSize: 20,
               fontWeight: 800,
-
             },
             headerTitleAlign: 'center',
           }} />
