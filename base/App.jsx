@@ -50,7 +50,7 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="teste">
+      <Stack.Navigator initialRouteName="LogHome">
         <Stack.Screen name="Home" component={PaginaHome} options={{
           title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center',}} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
@@ -92,7 +92,7 @@ export default function App() {
         <Stack.Screen name="Pagina7" component={Pagina7} />
         <Stack.Screen name="Pagina8" component={Pagina8} />
         <Stack.Screen name="Pagina9" component={Pagina9} />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Perfil"
           component={ResetInfo}
           options={{
@@ -109,7 +109,7 @@ export default function App() {
 
             },
             headerTitleAlign: 'center',
-          }} />
+          }} /> */}
         {/* <Stack.Screen
           name="Reset"
           component={ResetSenha}
