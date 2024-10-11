@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Button, Text, } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Text} from 'react-native';
 
 const sampleNews = [
   {
@@ -16,7 +16,7 @@ const sampleNews = [
   },
 ];
 
-const PaginaHome = ({ navigation }) => {
+const PaginaHome = ({ route, navigation }) => {
   const handlePress = (screenName) => {
     navigation.navigate(screenName);
   };
@@ -89,6 +89,7 @@ const PaginaHome = ({ navigation }) => {
             style={styles.logo}
           />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Perfil')}>
           <Text>Perfil</Text>
         </TouchableOpacity>
@@ -101,6 +102,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EDE6DB',
+  },
+  scrollView: {
+    flex: 1,
   },
   cardList: {
     marginVertical: 10,
@@ -140,15 +144,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 16,
-  },
-  containerBtn2: {
-    marginVertical: 10,
   },
 });
 
