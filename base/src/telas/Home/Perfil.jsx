@@ -12,11 +12,9 @@ const ResetInfo = ({ navigation, route }) => {
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
     const id = route.params.id
 
-
     const handleTrocarInfo = async () => {
         try {
             //verificar se as senhas coincidem
-
             const data = {
                 nome: nome,
                 sobrenome: sobrenome,
@@ -51,13 +49,11 @@ const ResetInfo = ({ navigation, route }) => {
                 value={nome}
             />
 
-
             <TextInput style={styles.EmailStyle}
                 placeholder='DIGITE SEU NOVO SOBRENOME:'
                 placeholderTextColor={'black'}
                 onChangeText={setSobrenome}
             />
-
 
             <TextInput style={styles.EmailStyle}
                 placeholder='CONFIRME SEU NOVO EMAIL:'
@@ -66,14 +62,10 @@ const ResetInfo = ({ navigation, route }) => {
             />
 
             <View style={styles.containerBtn2}>
-
                 <Button mode='outlined' textColor='black' style={styles.button2Styles} onPress={handleTrocarInfo}>
                     Editar informações
                 </Button>
-
             </View>
-
-
         </View>
     );
 }

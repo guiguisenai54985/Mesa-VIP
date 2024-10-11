@@ -50,53 +50,53 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="LogHome">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={PaginaHome} options={{
           title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center',}} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Cadastro" component={Cadastro} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="SobreNos" component={SobreNos} />
-        <Stack.Screen name="SobreNos2" component={SobreNos2} />
-        <Stack.Screen name="SobreNos3" component={SobreNos3} />
-        <Stack.Screen name="SobreNos4" component={SobreNos4} />
-        <Stack.Screen name="SobreNos5" component={SobreNos5} />
-        <Stack.Screen name="SobreNos6" component={SobreNos6} />
-        <Stack.Screen name="SobreNos7" component={SobreNos7} />
-        <Stack.Screen name="SobreNos8" component={SobreNos8} />
-        <Stack.Screen name="SobreNos9" component={SobreNos9} />
-        <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
-        <Stack.Screen name="Confirmation2" component={Confirmation2} />
-        <Stack.Screen name="Confirmation3" component={Confirmation3} />
-        <Stack.Screen name="Confirmation4" component={Confirmation4} />
-        <Stack.Screen name="Confirmation5" component={Confirmation5} />
-        <Stack.Screen name="Confirmation6" component={Confirmation6} />
-        <Stack.Screen name="Confirmation7" component={Confirmation7} />
-        <Stack.Screen name="Confirmation8" component={Confirmation8} />
-        <Stack.Screen name="Confirmation9" component={Confirmation9} />
-        <Stack.Screen name="ComprovantePage" component={ComprovantePage} />
-        <Stack.Screen name="ComprovantePage2" component={ComprovantePage2} />
-        <Stack.Screen name="ComprovantePage3" component={ComprovantePage3} />
-        <Stack.Screen name="ComprovantePage4" component={ComprovantePage4} />
-        <Stack.Screen name="ComprovantePage5" component={ComprovantePage5} />
-        <Stack.Screen name="ComprovantePage6" component={ComprovantePage6} />
-        <Stack.Screen name="ComprovantePage7" component={ComprovantePage7} />
-        <Stack.Screen name="ComprovantePage8" component={ComprovantePage8} />
-        <Stack.Screen name="ComprovantePage9" component={ComprovantePage9} />
-        <Stack.Screen name="Pagina" component={Pagina} />
-        <Stack.Screen name="Pagina2" component={Pagina2} />
-        <Stack.Screen name="Pagina3" component={Pagina3} />
-        <Stack.Screen name="Pagina4" component={Pagina4} />
-        <Stack.Screen name="Pagina5" component={Pagina5} />
-        <Stack.Screen name="Pagina6" component={Pagina6} />
-        <Stack.Screen name="Pagina7" component={Pagina7} />
-        <Stack.Screen name="Pagina8" component={Pagina8} />
-        <Stack.Screen name="Pagina9" component={Pagina9} />
-        {/* <Stack.Screen
+        <Stack.Screen name="Cadastro" component={Cadastro} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="SobreNos" component={SobreNos} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos2" component={SobreNos2} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos3" component={SobreNos3} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos4" component={SobreNos4} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos5" component={SobreNos5} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos6" component={SobreNos6} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos7" component={SobreNos7} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos8" component={SobreNos8} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="SobreNos9" component={SobreNos9} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation2" component={Confirmation2} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation3" component={Confirmation3} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation4" component={Confirmation4} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation5" component={Confirmation5} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation6" component={Confirmation6} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation7" component={Confirmation7} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation8" component={Confirmation8} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Confirmation9" component={Confirmation9} options={{ title: 'Confirmar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage" component={ComprovantePage} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage2" component={ComprovantePage2} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage3" component={ComprovantePage3} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage4" component={ComprovantePage4} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage5" component={ComprovantePage5} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage6" component={ComprovantePage6} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage7" component={ComprovantePage7} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage8" component={ComprovantePage8} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="ComprovantePage9" component={ComprovantePage9} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina" component={Pagina} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina2" component={Pagina2} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina3" component={Pagina3} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina4" component={Pagina4} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina5" component={Pagina5} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina6" component={Pagina6} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina7" component={Pagina7} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }}/>
+        <Stack.Screen
           name="Perfil"
           component={ResetInfo}
           options={{
-            title: 'EDITAR INFORMAÇÕES',
+            title: 'Editar Informações',
             headerStyle: {
               backgroundColor: '#E3CFAF',
               height: 70,
@@ -109,26 +109,8 @@ export default function App() {
 
             },
             headerTitleAlign: 'center',
-          }} /> */}
-        {/* <Stack.Screen
-          name="Reset"
-          component={ResetSenha}
-          options={{
-            title: 'MesaVIP',
-            headerStyle: {
-              backgroundColor: '#E3CFAF',
-              height: 70,
-            },
-            headerTitleStyle: {
-
-              color: '#E3CFAF',
-              fontSize: 25,
-              fontWeight: 800,
-
-            },
-            headerTitleAlign: 'center',
-          }}
-        /> */}
+          }} />
+        <Stack.Screen name="Reset" component={ResetSenha} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: '#E3CFAF', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -115,7 +115,7 @@ const ResetSenha = ({navigation}) =>{
 
                         <Button 
                             title="TROCAR SENHA"
-                            buttonStyle={Styles.button2Styles}
+                            buttonStyle={styles.button2Styles}
                             titleStyle={{ fontWeight: 'bold', fontSize: 13}}
                             onPress={handleTrocarSenha}
                         />
