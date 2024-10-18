@@ -17,11 +17,28 @@ const sampleNews = [
 ];
 
 const PaginaHome = ({ route, navigation }) => {
+  const { userData } = route.params;
+
   const handlePress = (screenName) => {
     navigation.navigate(screenName);
   };
+
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.navigate('Perfil', { userData })}>
+          <Image
+            source={require('../../../res/img/perfil.png')}
+            style={styles.profileImage}
+          />
+        </TouchableOpacity>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Perfil')}>
+          <Image
+            source={require('../../../res/img/perfil.png')}
+            style={styles.info}
+          />
+        </TouchableOpacity> */}
+      </View>
       <FlatList
         data={sampleNews}
         horizontal
@@ -35,63 +52,59 @@ const PaginaHome = ({ route, navigation }) => {
         style={styles.cardList}
       />
       <View style={styles.tabela}>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos', { userData })}>
           <Image
             source={require('../../../res/img/image1.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos2')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos2', { userData })}>
           <Image
             source={require('../../../res/img/image2.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos3')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos3', { userData })}>
           <Image
             source={require('../../../res/img/image3.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos4')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos4', { userData })}>
           <Image
             source={require('../../../res/img/image4.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos5')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos5', { userData })}>
           <Image
             source={require('../../../res/img/image5.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos6')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos6', { userData })}>
           <Image
             source={require('../../../res/img/image6.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos7')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos7', { userData })}>
           <Image
             source={require('../../../res/img/image7.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos8')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos8', { userData })}>
           <Image
             source={require('../../../res/img/image8.png')}
             style={styles.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos9')}>
+        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos9', { userData })}>
           <Image
             source={require('../../../res/img/image9.png')}
             style={styles.logo}
           />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Perfil')}>
-          <Text>Perfil</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -145,6 +158,17 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 50,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    padding: 10,
+  },
+  profileImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  
 });
 
 export default PaginaHome;

@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } from 'react-native';
 
-const SobreNos = ({ navigation }) => {
+const SobreNos = ({ route, navigation }) => {
+  const { userData } = route.params;
+
   const aoPressionarTelefone = () => {
     Linking.openURL(`tel:${'+5511999999999'}`); 
   };
@@ -53,7 +55,7 @@ const SobreNos = ({ navigation }) => {
 
       <TouchableOpacity 
         style={estilos.botao} 
-        onPress={() => navigation.navigate('Pagina')}
+        onPress={() => navigation.navigate('Pagina', { userData })}
       >
         <Text style={estilos.textoBotao}>Fazer Reserva</Text>
       </TouchableOpacity>

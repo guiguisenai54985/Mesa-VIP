@@ -3,7 +3,9 @@ import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, S
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Pagina = ({ route, navigation }) => {
-  const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
+  const { userData } = route.params;
+  console.log(userData);
+  // const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
 
   const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
   const [mostrarDatePicker, setMostrarDatePicker] = useState(false);
@@ -12,13 +14,13 @@ const Pagina = ({ route, navigation }) => {
   const [telefone, setTelefone] = useState(telefoneInicial || '');
   const [horarioSelecionado, setHorarioSelecionado] = useState(horarioInicial || null);
 
-  useEffect(() => {
-    setDataSelecionada(dataInicial || '');
-    setNome(nomeInicial || '');
-    setNumPessoas(numPessoasInicial || '');
-    setTelefone(telefoneInicial || '');
-    setHorarioSelecionado(horarioInicial || null);
-  }, [dataInicial, nomeInicial, numPessoasInicial, telefoneInicial, horarioInicial]);
+  // useEffect(() => {
+  //   setDataSelecionada(dataInicial || '');
+  //   setNome(nomeInicial || '');
+  //   setNumPessoas(numPessoasInicial || '');
+  //   setTelefone(telefoneInicial || '');
+  //   setHorarioSelecionado(horarioInicial || null);
+  // }, [dataInicial, nomeInicial, numPessoasInicial, telefoneInicial, horarioInicial]);
 
   const aoMudarData = (evento, data) => {
     setMostrarDatePicker(false);
@@ -28,6 +30,7 @@ const Pagina = ({ route, navigation }) => {
   };
 
   const aoClicarHorario = (horario) => {
+    console.log(horario)
     setHorarioSelecionado(horario);
     Alert.alert('Horário', `Horário ${horario} selecionado!`);
   };
@@ -78,7 +81,6 @@ const Pagina = ({ route, navigation }) => {
           </View>
           <View style={styles.formContainer}>
             <Text style={styles.formTitle}>📝</Text>
-            <TextInput placeholder="Nome Completo" style={styles.input} value={nome} onChangeText={setNome} />
             <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numPessoas} onChangeText={aoMudarNumPessoas} />
             <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={telefone} onChangeText={setTelefone} />
             <TouchableOpacity onPress={() => setMostrarDatePicker(true)}>

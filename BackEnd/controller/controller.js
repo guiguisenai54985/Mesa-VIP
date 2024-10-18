@@ -14,14 +14,14 @@ const userController = {
             res.status(200).json(clients);
         }
         catch (erro) {
-            res.status(500).json({ error: "Erro ao obter a lista de usuarios" })
+            res.status(400).json({ error: "Erro ao obter a lista de usuarios" })
         }
     },
 
-    //Controller list by id
+    //Controller listar por id
     listByID: async (req, res) => {
         try {
-            const sql = await clientController.getByID(req.params.id);
+            const sql = await clientController.getByIDUser(req.params.id);
 
             if (sql.length > 0) {
                 res.status(200).json(sql)
@@ -34,29 +34,6 @@ const userController = {
             return error
         }
     },
-    //Criar usuario
-    // createNewUser: async (req, res) => {
-    //     try {
-    //         const { id, nome, sobrenome, email, senha } = req.body;
-    //         console.log(req.body)
-
-    //         const sql = await clientController.getByEmail(email);
-
-    //         if (sql.length > 0) {
-    //             res.status(401).json({ msg: 'O email já existe no banco de dados' });
-
-
-    //         }
-
-    //         else {
-    //             await clientController.registerUser(id, nome, sobrenome, email, senha);
-    //             res.status(201).json({ msg: 'Usuário cadastrado com sucesso' });
-    //         }
-    //     } catch (error) {
-    //         console.error('Erro ao registrar usuário com a imagem', error);
-    //         return res.status(500).json({ msg: 'Erro no servidor' })
-    //     }
-    // },
 
     login: async (req, res) => {
         let { email, senha } = req.body;
@@ -77,7 +54,7 @@ const userController = {
         catch (error) {
             if (error) {
                 console.log(error)
-                res.status(500).json(error);
+                res.status(400).json({ error });
             }
         }
     },
@@ -99,7 +76,7 @@ const userController = {
         }
         catch (error) {
             if (error) {
-                res.status(500).json(error);
+                res.status(400).json({ error });
             }
         }
     },
@@ -115,7 +92,7 @@ const userController = {
         }
         catch (error) {
             console.log('erro ao redefinir a senha')
-            res.status(500).json({ msg: 'erro no servidor' })
+            res.status(400).json({ msg: 'erro no servidor' })
         }
     },
 
@@ -130,10 +107,9 @@ const userController = {
         }
         catch (error) {
             console.log('erro ao redfinir a senha')
-            res.status(500).json({ msg: 'erro no servidor' })
+            res.status(400).json({ msg: 'erro no servidor' })
         }
     },
-
 
     registerImageProfile: async (req, res) => {
         try {
@@ -146,7 +122,7 @@ const userController = {
 
         } catch (error) {
             console.error('Erro ao registrar a imagem', error);
-            return res.status(500).json({ msg: 'Erro no servidor' })
+            return res.status(400).json({ msg: 'Erro no servidor' })
         }
     },
 
@@ -165,7 +141,7 @@ const userController = {
         }
         catch (erro) {
             if (erro) {
-                res.status(500).json({ msg: "Erro no servidor" + erro })
+                res.status(400).json({ msg: "Erro no servidor" + erro })
             }
         }
     },
@@ -177,7 +153,7 @@ const userController = {
             res.status(200).json({ msg: "Reserva cancelada com sucesso" });
         } catch (error) {
             console.error('Erro ao cancelar a reserva:', error);
-            res.status(500).json({ error: "Erro ao cancelar a reserva" });
+            res.status(400).json({ error: "Erro ao cancelar a reserva" });
         }
     },
 
@@ -197,7 +173,66 @@ const userController = {
         }
         catch(error){
             console.log(error);
-            res.status(500).json({msg:'Ocorreu um erro durante o registro do usuário'});
+            res.status(400).json({msg:'Ocorreu um erro durante o registro do usuário'});
+        }
+    },
+
+    // CRUD - Reserva
+    indexReserva: async (req, res) => {
+        try {
+            const reservas = await clientController.indexReserva();
+            return res.status(200).json(reservas);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    showReserva: async (req, res) => {
+        const id = req.params.id
+        try {
+            const [reservas] = await clientController.showReserva(id);
+            if (!reservas) {
+                throw new Error('Nenhuma reserva encontrada nesse id.');
+            }
+            return res.status(200).json(reservas);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    createReserva: async (req, res) => {
+        const { telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user } = req.body;
+        try {
+            await clientController.createReserva({telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user});
+            return res.status(201).json({ msg: 'Cadastrado com sucesso' });
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    updateReserva: async (req, res) => {
+        const { telefone, n_pessoas, hora, data_reserva } = req.body;
+        const id = req.params.id;
+        try {
+            const reserva = await clientController.updateReserva({telefone, n_pessoas, hora, data_reserva, id});
+            return res.status(201).json(reserva);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    deleteReserva: async (req, res) => {
+        const id = req.params.id;
+        try {
+            await clientController.deleteReserva(id);
+            return res.status(204).json({ msg: 'Reserva excluida com sucesso' });
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
         }
     },
 

@@ -50,9 +50,8 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={PaginaHome} options={{
-          title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+      <Stack.Navigator initialRouteName="LogHome">
+        <Stack.Screen name="Home" component={PaginaHome} options={{ headerShown: false }} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Cadastro" component={Cadastro} options={{ title: 'Sobre Nós', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
@@ -83,15 +82,15 @@ export default function App() {
         <Stack.Screen name="ComprovantePage7" component={ComprovantePage7} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="ComprovantePage8" component={ComprovantePage8} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="ComprovantePage9" component={ComprovantePage9} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina" component={Pagina} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina2" component={Pagina2} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina3" component={Pagina3} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina4" component={Pagina4} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina5" component={Pagina5} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina6" component={Pagina6} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina7" component={Pagina7} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: 'Editar Pedido', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina" component={Pagina} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina2" component={Pagina2} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina3" component={Pagina3} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina4" component={Pagina4} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina5" component={Pagina5} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina6" component={Pagina6} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina7" component={Pagina7} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen
           name="Perfil"
           component={ResetInfo}
