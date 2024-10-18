@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Button, Text, } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Button, Text } from 'react-native';
 
 const sampleNews = [
   {
@@ -20,6 +20,7 @@ const PaginaHome = ({ navigation }) => {
   const handlePress = (screenName) => {
     navigation.navigate(screenName);
   };
+
   return (
     <ScrollView style={styles.container}>
       <FlatList
@@ -92,6 +93,11 @@ const PaginaHome = ({ navigation }) => {
         <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('Perfil')}>
           <Text>Perfil</Text>
         </TouchableOpacity>
+      </View>
+
+      {/* Adicionando o botão de melhorias */}
+      <View style={styles.containerBtn2}>
+        <Button title="Melhorias" onPress={() => handlePress('PaginaMelhorias')} />
       </View>
     </ScrollView>
   );
