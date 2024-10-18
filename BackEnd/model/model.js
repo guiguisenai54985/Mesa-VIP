@@ -92,6 +92,31 @@ const useModel = {
         return result
     },
 
+    indexReserva: async () => {
+        const [result] = await connection.query('SELECT `id`, `telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user` FROM `reserva`');
+        return result;
+    },
+
+    showReserva: async (id) => {
+        const [result] = await connection.query('SELECT `id`, `telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user` FROM `reserva` WHERE `id` = ?', [id]);
+        return result;
+    },
+
+    createReserva: async ({telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user}) => {
+        const [result] = await connection.query('INSERT INTO `reserva`(`telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user`) VALUES (?,?,?,?,?,?)', [telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user]);
+        return result;
+    },
+
+    updateReserva: async ({telefone, n_pessoas, hora, data_reserva, id}) => {
+        const [result] = await connection.query('UPDATE `reserva` SET `telefone`=? ,`n_pessoas`=?,`hora`=?,`data_reserva`=? WHERE `id` = ?;', [telefone, n_pessoas, hora, data_reserva, id]);
+        return result;
+    },
+
+    deleteReserva: async (id) => {
+        const [result] = await connection.query('DELETE FROM `reserva` WHERE `id` = ?', [id]);
+        return result;
+    },
+
 };
 
 module.exports = useModel;

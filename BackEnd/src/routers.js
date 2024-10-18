@@ -17,4 +17,10 @@ router.delete('/api/deletePedido/:id', clientController.deletePedido);//deletar 
 router.post('/api/cadastroUser' , clientController.cadastroUser)
 router.post('/api/vaidarLogin', clientController.login)
 
+router.get('/api/reserva', clientController.indexReserva); // Index, mostrar todas as reservas
+router.get('/api/reserva/:id', clientController.showReserva); // Show, mostrar reserva específica
+router.post('/api/reserva', clientController.createReserva); // Create, criara reserva
+router.put('/api/reserva/:id', clientController.updateReserva); // Update, atualizar reserva
+router.delete('/api/reserva/:id', clientController.deleteReserva); // Delete, apagar reserva
+
 module.exports = router;

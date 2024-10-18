@@ -1,26 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Alert, Image, StyleSheet, ScrollView, KeyboardAvoidingView } from 'react-native';
 import axios from 'axios';
 import { Button, TextInput } from 'react-native-paper';
 import { Input } from '@rneui/themed';
 
 const ResetInfo = ({ navigation, route }) => {
+    const [user, setUser] = useState({});
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [confirmaSenha, setConfirmaSenha] = useState('');
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
-    const id = route.params.id
+    const { userData } = route.params;
+
+    const getUser = async () => {
+        const {data} = await axios.get(`http://10.0.2.2:8085/api/read/${userData.id}`)
+        setUser(data[0]);
+    }
 
     const handleTrocarInfo = async () => {
         try {
             //verificar se as senhas coincidem
-            const data = {
-                nome: nome,
-                sobrenome: sobrenome,
-                email: email,
-                id: id
-            }
+            // const data = {
+            //     nome: nome,
+            //     sobrenome: sobrenome,
+            //     email: email,
+            //     id: id
+            // }
 
             //fazer a solicitação para trocar a senha
             const response = await axios.post('http://10.0.2.2:8085/api/resetInfo', data);
@@ -38,10 +44,17 @@ const ResetInfo = ({ navigation, route }) => {
         }
     };
 
+    useEffect(() => {
+        getUser();
+    }, [])
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Editar sua informações</Text>
-
+            <Text>email: {user.email}</Text>
+            <Text>id: {user.id}</Text>
+            <Text>nome {user.nome}</Text>
+            <Text>senha: {user.senha}</Text>
             <TextInput style={styles.EmailStyle}
                 placeholder='DIGITE SEU NOVO NOME:'
                 placeholderTextColor={'black'}
