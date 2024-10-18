@@ -43,7 +43,7 @@ import Login from "./src/telas/Home/Login";
 import Cadastro from "./src/telas/Home/Cadastro";
 import ResetInfo from "./src/telas/Home/Perfil";
 import ResetSenha from "./src/telas/Home/Reset";
-//conflito arrumado
+
 const Stack = createStackNavigator();
 
 export default function App() {
