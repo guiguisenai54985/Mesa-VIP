@@ -43,6 +43,7 @@ import Login from "./src/telas/Home/Login";
 import Cadastro from "./src/telas/Home/Cadastro";
 import ResetInfo from "./src/telas/Home/Perfil";
 import ResetSenha from "./src/telas/Home/Reset";
+import PaginaMelhorias from "./src/telas/Home/Melhorias";
 
 const Stack = createStackNavigator();
 
@@ -91,6 +92,7 @@ export default function App() {
         <Stack.Screen name="Pagina7" component={Pagina7} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        
         <Stack.Screen
           name="Perfil"
           component={ResetInfo}
