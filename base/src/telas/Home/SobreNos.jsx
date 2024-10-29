@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } from 'react-native';
 
-const SobreNos = ({ route, navigation }) => {
-  const { userData } = route.params;
+const SobreNos = ({navigation }) => {
 
   const aoPressionarTelefone = () => {
     Linking.openURL(`tel:${'+5511999999999'}`); 
