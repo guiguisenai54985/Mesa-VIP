@@ -51,7 +51,7 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="PaginaHome">
+      <Stack.Navigator initialRouteName="LogHome">
         <Stack.Screen name="Home" component={PaginaHome} options={{ headerShown: false }} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
