@@ -51,10 +51,10 @@ const ResetInfo = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Editar sua informações</Text>
-            <Text>email: {user.email}</Text>
+            {/* <Text>email: {user.email}</Text>
             <Text>id: {user.id}</Text>
             <Text>nome {user.nome}</Text>
-            <Text>senha: {user.senha}</Text>
+            <Text>senha: {user.senha}</Text> */}
             <TextInput style={styles.EmailStyle}
                 placeholder='DIGITE SEU NOVO NOME:'
                 placeholderTextColor={'black'}
