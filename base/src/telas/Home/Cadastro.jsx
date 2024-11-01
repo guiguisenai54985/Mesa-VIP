@@ -30,7 +30,7 @@ export default function Cadastro({ navigation }) {
         }
         //envio de informações para a API cadastrar no banco de dados
         try {
-            await axios.post('http://10.0.2.2:8085/api/cadastroUser', formData);
+            await axios.post('http://10.0.2.2:8085/api/cadastrouserhash', formData);
             Alert.alert('Cadastro realizado com sucesso');
 
             setFormData('');

@@ -39,7 +39,7 @@ const userController = {
         let { email, senha } = req.body;
 
         try {
-            const sql = await clientController.validateLoginUser(email, senha);
+            const sql = await clientController.validateLogin(email, senha);
 
 
             if (sql.length > 0 && sql[0].senha === senha) {
@@ -111,28 +111,28 @@ const userController = {
         }
     },
 
-    registerImageProfile: async (req, res) => {
-        try {
-            let { id, imagemBase64 } = req.body;
+    // registerImageProfile: async (req, res) => {
+    //     try {
+    //         let { id, imagemBase64 } = req.body;
 
-            console.log(req.body)
+    //         console.log(req.body)
 
-            await clientController.registerImage(id, imagemBase64);
-            res.status(201).json({ msg: 'Foto de perfil alterada com sucesso' });
+    //         await clientController.registerImage(id, imagemBase64);
+    //         res.status(201).json({ msg: 'Foto de perfil alterada com sucesso' });
 
-        } catch (error) {
-            console.error('Erro ao registrar a imagem', error);
-            return res.status(400).json({ msg: 'Erro no servidor' })
-        }
-    },
+    //     } catch (error) {
+    //         console.error('Erro ao registrar a imagem', error);
+    //         return res.status(400).json({ msg: 'Erro no servidor' })
+    //     }
+    // },
 
     updateUser: async (req, res) => {
-        const { id, imagemBase64 } = req.body;
+        const { id } = req.body;
         try {
             const sql = await clientController.getByID(id)
 
             if (sql.length > 0) {
-                await clientController.updateUser(imagemBase64, id)
+                await clientController.updateUser(id)
                 res.status(200).json({ msg: "Atualizado com sucesso" })
             }
             else {
@@ -146,16 +146,16 @@ const userController = {
         }
     },
 
-    deletePedido: async (req, res) => {
-        try {
-            const { id } = req.params;
-            await clientController.removePedido(id);
-            res.status(200).json({ msg: "Reserva cancelada com sucesso" });
-        } catch (error) {
-            console.error('Erro ao cancelar a reserva:', error);
-            res.status(400).json({ error: "Erro ao cancelar a reserva" });
-        }
-    },
+    // deletePedido: async (req, res) => {
+    //     try {
+    //         const { id } = req.params;
+    //         await clientController.removePedido(id);
+    //         res.status(200).json({ msg: "Reserva cancelada com sucesso" });
+    //     } catch (error) {
+    //         console.error('Erro ao cancelar a reserva:', error);
+    //         res.status(400).json({ error: "Erro ao cancelar a reserva" });
+    //     }
+    // },
 
     cadastroUser: async(req, res) => {
         const {id, nome, sobrenome, email, senha} = req.body
@@ -174,6 +174,26 @@ const userController = {
         catch(error){
             console.log(error);
             res.status(400).json({msg:'Ocorreu um erro durante o registro do usuário'});
+        }
+    },
+
+    login: async(req,res) => {
+        let{email, senha} = req.body;
+
+        try{
+            const sql = await clientController.validateLogin(email, senha);
+            console.log(sql);
+            if(sql != null){
+                res.status(201).json({msg: 'Usuário válidado com sucesso'});
+            }
+            else{
+                res.status(401).json({msg: 'credenciais inválidas'})
+            }
+        }
+        catch(error){
+            if(error){
+                res.status(500).json(error);
+            }
         }
     },
 

@@ -5,21 +5,26 @@ const router = express.Router();
 router.get("/", clientController.getRoot); //Rota raiz
 router.get("/api/read", clientController.listAllUsers); //Listar tds os usuarios
 router.get("/api/read/:id", clientController.listByID); // Listar por id
-//router.post('/api/cadastro', clientController.createNewUser); //Cadastrar novo usuario
-//router.post("/api/validation", clientController.login);//Validar o login
+
+//router.post('/api/registerImage', clientController.registerImageProfile);//verificar o email de reset
+
+//perfil
+router.put('/api/registerImage/:id', clientController.updateUser);
+//router.delete('/api/deletePedido/:id', clientController.deletePedido);//deletar reserva
+
+//rotas para login
+router.post('/api/cadastrouserhash' , clientController.cadastroUser) //cadastrar usuario
+router.post('/api/validatelogin' , clientController.login) //validar login 
+
+//rotas para reset
 router.post('/api/reset', clientController.getByEmailReset);//verificar o email de reset
 router.post('/api/resetPassword', clientController.resetPassword);//resetar a senha
 router.post('/api/resetInfo', clientController.resetInfo);//resetar senha
-router.post('/api/registerImage', clientController.registerImageProfile);//verificar o email de reset
-router.put('/api/registerImage/:id', clientController.updateUser);
-router.delete('/api/deletePedido/:id', clientController.deletePedido);//deletar reserva
 
-router.post('/api/cadastroUser' , clientController.cadastroUser)
-router.post('/api/vaidarLogin', clientController.login)
-
+//rotas para reservas
 router.get('/api/reserva', clientController.indexReserva); // Index, mostrar todas as reservas
 router.get('/api/reserva/:id', clientController.showReserva); // Show, mostrar reserva específica
-router.post('/api/reserva', clientController.createReserva); // Create, criara reserva
+router.post('/api/reserva', clientController.createReserva); // Create, criar reserva
 router.put('/api/reserva/:id', clientController.updateReserva); // Update, atualizar reserva
 router.delete('/api/reserva/:id', clientController.deleteReserva); // Delete, apagar reserva
 

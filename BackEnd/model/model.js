@@ -1,4 +1,6 @@
 const connection = require("../config/db");
+const bcrypt = require('bcrypt');
+const salt = 10;
 
 const useModel = {
     getAllUsers: async () => {
@@ -29,13 +31,13 @@ const useModel = {
     //         throw new Error('Erro ao registrar o usuário')
     //     }
     // },
-    
+    /*
     validateLogin: async (email, senha) => {
         const [result] = await connection.query("SELECT * FROM user WHERE email=? AND senha=?", [email, senha])
             .catch(erro => console.log(erro));
         return result;
     },
-   
+   */
     //email para resetar senha 
     resetByEmail: async (email) => {
         const [result] = await connection.query('select * from user where email=?', [email])
@@ -48,50 +50,76 @@ const useModel = {
         return result;
     },
 
-    updateUser: async(id, imagem)=>{
-        const[result] = await connection.query("UPDATE user SET imagem =?, WHERE id=?",[imagem, id])
+    updateUser: async(id)=>{
+        const[result] = await connection.query("UPDATE user WHERE id=?",[id])
         .catch(erro => console.log(erro));
         return result;
     },
 
-    registerImage: async (id, imagem ) => {
-        try{
-            const result = await connection.query('UPDATE user set imagem=? WHERE id=?',[imagem, id])
-            return result;
-        }
-        catch(error) {
-            console.log('Erro ao registrar o usuário com a imagem', error);
-            throw new Error('Erro ao registrar o usuário')
-        }
-    },
+    // registerImage: async (id, imagem ) => {
+    //     try{
+    //         const result = await connection.query('UPDATE user set imagem=? WHERE id=?',[imagem, id])
+    //         return result;
+    //     }
+    //     catch(error) {
+    //         console.log('Erro ao registrar o usuário com a imagem', error);
+    //         throw new Error('Erro ao registrar o usuário')
+    //     }
+    // },
 
-    removePedido: async (id) => {
-        const [result] = await connection.query(
-            "DELETE FROM pedido WHERE id = ?",
-            [id]
-        ).catch(err => console.log(err));
-        return result;
-    },
+    // removePedido: async (id) => {
+    //     const [result] = await connection.query(
+    //         "DELETE FROM pedido WHERE id = ?",
+    //         [id]
+    //     ).catch(err => console.log(err));
+    //     return result;
+    // },
 
-    //update the password
+    //atualizar a senha
     updatedPassword: async (email, senha) => {
         const result = await connection.query('UPDATE user SET senha=? where email=?', [senha, email])
             .catch(erro => console.log(erro));
         return result;
     },
 
+    //inicio da model do login
+    //cadastrar usuario
     registerUser: async(id, nome, sobrenome, email, senha) => {
-        const [result] = await connection.query("INSERT INTO user values(?, ?, ?, ?, ?)", [id, nome, sobrenome, email, senha])
+        const handPassword = await bcrypt.hash(senha,salt)
+        const [result] = await connection.query("INSERT INTO user values(?, ?, ?, ?, ?)", [id, nome, sobrenome, email, handPassword])
         .catch(erro => console.log(erro));
         return result
     },
 
-    validateLoginUser: async(email,senha) => {
-        const [result] = await connection.query("SELECT * FROM user WHERE email=? AND senha=?" , [email,senha])
-        .catch(erro  => console.log(erro));
-        return result
+    validateLogin: async(email, senha) => {
+        
+        const [result] = await connection.query("SELECT senha FROM user WHERE email=?" , [email])
+        try{
+            if(result.length > 0){
+               
+                const userSenha = result[0];
+            
+                const validate = await bcrypt.compare(senha, userSenha.senha);//está validando indefinida
+                
+                if(validate){
+                    return result
+                }
+                else{
+                    return null
+                }
+            }
+            else{
+                return null
+            }
+        }
+        catch(erro){
+            console.log(erro)
+        }
+    
     },
+    //fim da model do login
 
+    //reserva
     indexReserva: async () => {
         const [result] = await connection.query('SELECT `id`, `telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user` FROM `reserva`');
         return result;
