@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+//home
 import ConfirmationPage from "./src/telas/Home/ConfirmationPage";
 import Confirmation2 from "./src/telas/Home/Confirmation2";
 import Confirmation3 from "./src/telas/Home/Confirmation3";
@@ -38,12 +39,16 @@ import SobreNos7 from "./src/telas/Home/SobreNos7";
 import SobreNos8 from "./src/telas/Home/SobreNos8";
 import SobreNos9 from "./src/telas/Home/SobreNos9";
 import PaginaHome from "./src/telas/Home/PaginaHome";
+import PaginaMelhorias from "./src/telas/Home/Melhorias";
+//login
 import LogHome from "./src/telas/Home/LogHome";
 import Login from "./src/telas/Home/Login";
 import Cadastro from "./src/telas/Home/Cadastro";
-import ResetInfo from "./src/telas/Home/Perfil";
 import ResetSenha from "./src/telas/Home/Reset";
-import PaginaMelhorias from "./src/telas/Home/Melhorias";
+//perfil
+import ProfileScreen from "./src/telas/Home/PerfilUser";
+import ResetInfo from "./src/telas/Home/EditarInfo";
+import Reserva from "./src/telas/Home/Reservas";
 
 const Stack = createStackNavigator();
 
@@ -84,7 +89,7 @@ export default function App() {
         <Stack.Screen name="ComprovantePage8" component={ComprovantePage8} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="ComprovantePage9" component={ComprovantePage9} options={{ title: 'Comprovante', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina" component={Pagina} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-       <Stack.Screen name="Pagina2" component={Pagina2} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Pagina2" component={Pagina2} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina3" component={Pagina3} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina4" component={Pagina4} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina5" component={Pagina5} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
@@ -92,8 +97,10 @@ export default function App() {
         <Stack.Screen name="Pagina7" component={Pagina7} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="PaginaMelhorias" component={PaginaMelhorias} options={{ title: '', headerStyle: { backgroundColor: '#FFF3CD', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Perfil" component={ResetInfo} options={{ title: 'Editar Informações', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Melhorias" component={PaginaMelhorias} options={{ title: '', headerStyle: { backgroundColor: '#FFF3CD', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Perfil" component={ProfileScreen} options={{ title: 'Perfil', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Editar Informações" component={ResetInfo} options={{ title: 'Editar Informações', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        <Stack.Screen name="Reserva" component={Reserva} options={{ title: 'Reservas', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Reset" component={ResetSenha} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: '#E3CFAF', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
       </Stack.Navigator>
     </NavigationContainer>
