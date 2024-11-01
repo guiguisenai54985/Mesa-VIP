@@ -22,7 +22,7 @@ const SobreNos = ({navigation }) => {
   return (
     <ScrollView contentContainerStyle={estilos.container}>
       <Image
-        source={{ uri: 'https://i.pinimg.com/564x/c2/74/c2/c274c25f58a73db94926c18ef8ed2095.jpg' }} 
+        source={{ uri: 'https://i.pinimg.com/564x/26/86/3c/26863c445d4cf5b16c5526d8fba341af.jpg' }} 
         style={estilos.imagem}
       />
       <Text style={estilos.titulo}>Restaurante Gourmet</Text>

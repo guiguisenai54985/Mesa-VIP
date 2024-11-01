@@ -5,7 +5,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const Pagina = ({ route, navigation }) => {
   const { userData } = route.params;
   console.log(userData);
-  // const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
+   const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
 
   const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
   const [mostrarDatePicker, setMostrarDatePicker] = useState(false);
@@ -14,13 +14,13 @@ const Pagina = ({ route, navigation }) => {
   const [telefone, setTelefone] = useState(telefoneInicial || '');
   const [horarioSelecionado, setHorarioSelecionado] = useState(horarioInicial || null);
 
-  // useEffect(() => {
-  //   setDataSelecionada(dataInicial || '');
-  //   setNome(nomeInicial || '');
-  //   setNumPessoas(numPessoasInicial || '');
-  //   setTelefone(telefoneInicial || '');
-  //   setHorarioSelecionado(horarioInicial || null);
-  // }, [dataInicial, nomeInicial, numPessoasInicial, telefoneInicial, horarioInicial]);
+  useEffect(() => {
+    setDataSelecionada(dataInicial || '');
+    setNome(nomeInicial || '');
+    setNumPessoas(numPessoasInicial || '');
+    setTelefone(telefoneInicial || '');
+    setHorarioSelecionado(horarioInicial || null);
+  }, [dataInicial, nomeInicial, numPessoasInicial, telefoneInicial, horarioInicial]);
 
   const aoMudarData = (evento, data) => {
     setMostrarDatePicker(false);

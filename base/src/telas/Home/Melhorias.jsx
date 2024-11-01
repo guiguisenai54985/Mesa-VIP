@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const PaginaMelhorias = ({ navigation }) => {
   const voltarParaHome = () => {
-    navigation.navigate('PaginaHome'); 
+    navigation.navigate('Home'); 
   };
 
   return (
