@@ -22,6 +22,7 @@
     "galio-framework": "^0.8.0",
     "react": "18.2.0",
     "react-native": "0.73.6",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-calendars": "^1.1304.1",
     "react-native-datepicker": "^1.7.2",
     "react-native-gesture-handler": "^2.14.1",
