@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Text, Button, Alert } from 'react-native';
+import React, { useRef } from 'react';
+import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Alert, Animated } from 'react-native';
 
 const sampleNews = [
   {
@@ -17,11 +17,26 @@ const sampleNews = [
 ];
 
 const PaginaHome = ({ route, navigation }) => {
-  // Verificando se route.params e userData existem antes de tentar acessá-los
   const { userData } = route.params || {};
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const handlePress = (screenName) => {
-      navigation.navigate(screenName, { userData });
+    navigation.navigate(screenName, { userData });
+  };
+
+
+  const animateIcon = () => {
+    Animated.timing(scaleAnim, {
+      toValue: 0.9,
+      duration: 100,
+      useNativeDriver: true,
+    }).start(() => {
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }).start();
+    });
   };
 
   return (
@@ -104,11 +119,6 @@ const PaginaHome = ({ route, navigation }) => {
           />
         </TouchableOpacity>
       </View>
-
-
-      <View style={styles.containerBtn2}>
-        <Button title="Melhorias" onPress={() => handlePress('PaginaMelhorias')} />
-      </View>
     </ScrollView>
   );
 };
@@ -117,9 +127,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EDE6DB',
-  },
-  scrollView: {
-    flex: 1,
   },
   cardList: {
     marginVertical: 10,
@@ -162,17 +169,14 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     padding: 10,
   },
   profileImage: {
     width: 40,
     height: 40,
     borderRadius: 20,
-  },
-  containerBtn2: {
-    marginTop: 20,
-    alignItems: 'center',
+    marginRight: 10,
   },
 });
 
