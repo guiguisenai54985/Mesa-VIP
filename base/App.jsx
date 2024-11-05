@@ -40,11 +40,13 @@ import SobreNos7 from "./src/telas/Home/SobreNos7";
 import SobreNos8 from "./src/telas/Home/SobreNos8";
 import SobreNos9 from "./src/telas/Home/SobreNos9";
 import PaginaHome from "./src/telas/Home/PaginaHome";
+
 //login
 import LogHome from "./src/telas/Home/LogHome";
 import Login from "./src/telas/Home/Login";
 import Cadastro from "./src/telas/Home/Cadastro";
 import ResetSenha from "./src/telas/Home/Reset";
+
 //perfil
 import ProfileScreen from "./src/telas/Home/PerfilUser";
 import ResetInfo from "./src/telas/Home/EditarInfo";
@@ -56,7 +58,7 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="OnBoarding">
+      <Stack.Navigator initialRouteName="LogHome">
         <Stack.Screen name="Home" component={PaginaHome} options={{ headerShown: false }} />
         <Stack.Screen name="LogHome" component={LogHome} options={{ title: '', headerStyle: { backgroundColor: '#EDE6DB', height: 5 } }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />

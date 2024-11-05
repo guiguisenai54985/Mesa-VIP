@@ -4,55 +4,51 @@ import { Text, } from '@rneui/themed';
 import { Button } from '@rneui/themed';
 import { Input } from '@rneui/themed';
 import axios from 'axios';
-import Cadastro from './Cadastro'
-import PaginaHome from "../Home/PaginaHome";
-import { HelperText, TextInput } from 'react-native-paper';
 
 const Login = ({ navigation }) => {
   const [text, setText] = React.useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const onChangeText = text => setText(text);
+  // const onChangeText = text => setText(text);
 
   const hasErrors = () => {
     return !text.includes('@');
   };
 
+  //ir para a pagina de reset
   const handleResetSenha = () => {
     navigation.navigate('Reset');
   }
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
 
   const handleLogin = async () => {
     try {
       //verificar se os campos foram preenchidos
       if (!email || !senha) {
-        Alert.alert('Preencha todos os campos')
+        Alert.alert('Preencha todos os campos');
         return;
       }
 
       //Objetivo para enviar para a API
       const data = {
         email: email.toLowerCase(),
-        senha: senha
-      }
+        senha: senha,
+      };
 
       //Envio dos dados para a API
-
-      const response = await axios.post('http://10.0.2.2:8085/api/vaidarLogin', data);
-
+      const response = await axios.post('http://10.0.2.2:8085/api/validatelogin', data);
+      console.log(response);
       //Verificar se o login foi efetuado com sucesso
-
-      if (response.status === 200) {
+      if (response.status === 201) {
         setEmail('');
         setSenha('');
+        console.log(response);
         const userData = {
           id: response.data.id,
           nome: response.data.nome,
           sobrenome: response.data.sobrenome,
           email: response.data.email,
           senha: response.data.senha,
-          imagem: response.data.imagem
         }
         navigation.navigate('Home', { userData });
       }
@@ -62,7 +58,7 @@ const Login = ({ navigation }) => {
     }
     catch (error) {
       if (error.response && error.response.status === 401) {
-        Alert.alert('Email ou senha incorretos ')
+        Alert.alert('Email ou senha incorretos')
       }
 
       else {
@@ -230,6 +226,7 @@ const Styles = StyleSheet.create({
   textBTM: {
     backgroundColor: '#EDE6DB',
   },
+
   resetSenha: {
     marginTop: 10,
     color: 'black',

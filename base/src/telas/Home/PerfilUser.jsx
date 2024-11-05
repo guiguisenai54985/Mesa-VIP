@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const ProfileScreen = ({ route, navigate }) => {
@@ -54,7 +54,6 @@ const ProfileScreen = ({ route, navigate }) => {
                 value={senha}
             />
             
-
             <TouchableOpacity style={styles.button2} onPress={() => handlePress('Reserva')}>
                 <Text style={styles.buttonText}>Reservas</Text>
             </TouchableOpacity>
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
         borderColor: '#E3CFAF',
         borderRadius: 10,
         fontSize: 15,
-        color: '#E3CFAF',
+        color: 'black',
         fontWeight: 'bold',
     },
 });

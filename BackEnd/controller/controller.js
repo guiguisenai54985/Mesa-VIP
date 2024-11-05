@@ -35,29 +35,29 @@ const userController = {
         }
     },
 
-    login: async (req, res) => {
-        let { email, senha } = req.body;
+    // login: async (req, res) => {
+    //     let { email, senha } = req.body;
 
-        try {
-            const sql = await clientController.validateLogin(email, senha);
+    //     try {
+    //         const sql = await clientController.validateLogin(email, senha);
 
 
-            if (sql.length > 0 && sql[0].senha === senha) {
-                res.status(200).json(sql[0]);
+    //         if (sql.length > 0 && sql[0].senha === senha) {
+    //             res.status(200).json(sql[0]);
 
-            }
+    //         }
 
-            else {
-                res.status(401).json({ msg: "Email ou senha incorretos" });
-            }
-        }
-        catch (error) {
-            if (error) {
-                console.log(error)
-                res.status(400).json({ error });
-            }
-        }
-    },
+    //         else {
+    //             res.status(401).json({ msg: "Email ou senha incorretos" });
+    //         }
+    //     }
+    //     catch (error) {
+    //         if (error) {
+    //             console.log(error)
+    //             res.status(400).json({ error });
+    //         }
+    //     }
+    // },
 
     getByEmailReset: async (req, res) => {
         let { email } = req.body
@@ -111,20 +111,6 @@ const userController = {
         }
     },
 
-    // registerImageProfile: async (req, res) => {
-    //     try {
-    //         let { id, imagemBase64 } = req.body;
-
-    //         console.log(req.body)
-
-    //         await clientController.registerImage(id, imagemBase64);
-    //         res.status(201).json({ msg: 'Foto de perfil alterada com sucesso' });
-
-    //     } catch (error) {
-    //         console.error('Erro ao registrar a imagem', error);
-    //         return res.status(400).json({ msg: 'Erro no servidor' })
-    //     }
-    // },
 
     updateUser: async (req, res) => {
         const { id } = req.body;
@@ -146,17 +132,7 @@ const userController = {
         }
     },
 
-    // deletePedido: async (req, res) => {
-    //     try {
-    //         const { id } = req.params;
-    //         await clientController.removePedido(id);
-    //         res.status(200).json({ msg: "Reserva cancelada com sucesso" });
-    //     } catch (error) {
-    //         console.error('Erro ao cancelar a reserva:', error);
-    //         res.status(400).json({ error: "Erro ao cancelar a reserva" });
-    //     }
-    // },
-
+    //cadastrar usuario
     cadastroUser: async(req, res) => {
         const {id, nome, sobrenome, email, senha} = req.body
 
@@ -179,10 +155,8 @@ const userController = {
 
     login: async(req,res) => {
         let{email, senha} = req.body;
-
         try{
             const sql = await clientController.validateLogin(email, senha);
-            console.log(sql);
             if(sql != null){
                 res.status(201).json({msg: 'Usuário válidado com sucesso'});
             }

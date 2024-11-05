@@ -10,7 +10,6 @@ router.get("/api/read/:id", clientController.listByID); // Listar por id
 
 //perfil
 router.put('/api/registerImage/:id', clientController.updateUser);
-//router.delete('/api/deletePedido/:id', clientController.deletePedido);//deletar reserva
 
 //rotas para login
 router.post('/api/cadastrouserhash' , clientController.cadastroUser) //cadastrar usuario

@@ -21,23 +21,7 @@ const useModel = {
         return result
     },
 
-    // registerUser: async (id, nome, sobrenome, email, senha) => {
-    //     try{
-    //         const result = await connection.query('INSERT INTO user (id,nome,sobrenome,email,senha) VALUES(?, ?, ?, ?, ?)',[id, nome, sobrenome, email, senha])
-    //         return result;
-    //     }
-    //     catch(error) {
-    //         console.log('Erro ao registrar o usuário com a imagem', error);
-    //         throw new Error('Erro ao registrar o usuário')
-    //     }
-    // },
-    /*
-    validateLogin: async (email, senha) => {
-        const [result] = await connection.query("SELECT * FROM user WHERE email=? AND senha=?", [email, senha])
-            .catch(erro => console.log(erro));
-        return result;
-    },
-   */
+    //inicio da model do login
     //email para resetar senha 
     resetByEmail: async (email) => {
         const [result] = await connection.query('select * from user where email=?', [email])
@@ -55,26 +39,7 @@ const useModel = {
         .catch(erro => console.log(erro));
         return result;
     },
-
-    // registerImage: async (id, imagem ) => {
-    //     try{
-    //         const result = await connection.query('UPDATE user set imagem=? WHERE id=?',[imagem, id])
-    //         return result;
-    //     }
-    //     catch(error) {
-    //         console.log('Erro ao registrar o usuário com a imagem', error);
-    //         throw new Error('Erro ao registrar o usuário')
-    //     }
-    // },
-
-    // removePedido: async (id) => {
-    //     const [result] = await connection.query(
-    //         "DELETE FROM pedido WHERE id = ?",
-    //         [id]
-    //     ).catch(err => console.log(err));
-    //     return result;
-    // },
-
+    
     //atualizar a senha
     updatedPassword: async (email, senha) => {
         const result = await connection.query('UPDATE user SET senha=? where email=?', [senha, email])
@@ -82,7 +47,6 @@ const useModel = {
         return result;
     },
 
-    //inicio da model do login
     //cadastrar usuario
     registerUser: async(id, nome, sobrenome, email, senha) => {
         const handPassword = await bcrypt.hash(senha,salt)
@@ -91,6 +55,7 @@ const useModel = {
         return result
     },
 
+    //validar login
     validateLogin: async(email, senha) => {
         
         const [result] = await connection.query("SELECT senha FROM user WHERE email=?" , [email])
@@ -99,7 +64,7 @@ const useModel = {
                
                 const userSenha = result[0];
             
-                const validate = await bcrypt.compare(senha, userSenha.senha);//está validando indefinida
+                const validate = await bcrypt.compare(senha, userSenha.senha);
                 
                 if(validate){
                     return result
@@ -119,7 +84,7 @@ const useModel = {
     },
     //fim da model do login
 
-    //reserva
+    //model para reserva
     indexReserva: async () => {
         const [result] = await connection.query('SELECT `id`, `telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user` FROM `reserva`');
         return result;
