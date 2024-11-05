@@ -19,7 +19,7 @@ const slides = [
     {
         id: 2,
         title: 'Diga adeus às filas!',
-        description: ' Cansado de esperar horas por uma mesa? Com [Nome do seu app], você reserva sua mesa em segundos e garante um lugar especial para você e seus amigos.',
+        description: ' Cansado de esperar horas por uma mesa? Com MesaVIP, você reserva sua mesa em segundos e garante um lugar especial para você e seus amigos.',
         image: { uri: 'https://img.freepik.com/vetores-premium/pessoas-profissionais-ao-lado-de-estandes-promocionais-comerciais_1323048-4271.jpg?uid=R157379999&ga=GA1.1.1235062644.1724770198&semt=ais_siglip' }
     },
 ]

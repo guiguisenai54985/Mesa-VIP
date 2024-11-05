@@ -25,19 +25,19 @@ const PaginaHome = ({ route, navigation }) => {
   };
 
 
-  const animateIcon = () => {
-    Animated.timing(scaleAnim, {
-      toValue: 0.9,
-      duration: 100,
-      useNativeDriver: true,
-    }).start(() => {
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }).start();
-    });
-  };
+  // const animateIcon = () => {
+  //   Animated.timing(scaleAnim, {
+  //     toValue: 0.9,
+  //     duration: 100,
+  //     useNativeDriver: true,
+  //   }).start(() => {
+  //     Animated.timing(scaleAnim, {
+  //       toValue: 1,
+  //       duration: 100,
+  //       useNativeDriver: true,
+  //     }).start();
+  //   });
+  // };
 
   return (
     <ScrollView style={styles.container}>
