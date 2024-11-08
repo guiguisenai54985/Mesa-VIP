@@ -1,18 +1,19 @@
+
 import React, { useRef } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Alert, Animated } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Animated } from 'react-native';
 
 const sampleNews = [
   {
-    image: 'https://i.pinimg.com/564x/3f/de/59/3fde59c1d9ae5d1285e4786be81b7152.jpg',
+    image: 'https://img.freepik.com/premium-vector/restaurant-menu-design_12454-6730.jpg?w=740',
   },
   {
-    image: 'https://i.pinimg.com/736x/18/2f/55/182f55abd1b3ab47c85bcb8abaa4c988.jpg',
+    image: 'https://img.freepik.com/premium-vector/view-city-from-window-with-view-city_1250126-8379.jpg?w=740',
   },
   {
-    image: 'https://i.pinimg.com/564x/3d/46/74/3d467426e5ad3f306e8104b4a7df0cff.jpg',
+    image: 'https://img.freepik.com/premium-vector/diverse-array-fresh-fruits-vegetables-displayed-wooden-crates-rustic-wooden-background_597121-40768.jpg?w=740',
   },
   {
-    image: 'https://i.pinimg.com/564x/1f/0f/ee/1f0fee613c3000d6df53e7e1b52d7a84.jpg',
+    image: 'https://img.freepik.com/premium-vector/couple-having-dinner-restaurant-lovers-different-races-have-lunch_88272-4212.jpg?w=900',
   },
 ];
 
@@ -25,26 +26,13 @@ const PaginaHome = ({ route, navigation }) => {
   };
 
 
-  // const animateIcon = () => {
-  //   Animated.timing(scaleAnim, {
-  //     toValue: 0.9,
-  //     duration: 100,
-  //     useNativeDriver: true,
-  //   }).start(() => {
-  //     Animated.timing(scaleAnim, {
-  //       toValue: 1,
-  //       duration: 100,
-  //       useNativeDriver: true,
-  //     }).start();
-  //   });
-  // };
-
+  
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => handlePress('Perfil')}>
           <Image
-            source={require('../../../res/img/perfil.png')}
+            source={require('../../../res/img/icon.png')}
             style={styles.profileImage}
           />
         </TouchableOpacity>
@@ -160,23 +148,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3CFAF',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    margin: 15, 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2, 
+    shadowRadius: 5,
+    elevation: 5, 
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: '80%', 
+    height: '80%',
     borderRadius: 50,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 15, 
+    backgroundColor: '#FFF', 
+    borderBottomWidth: 1,
+    borderBottomColor: '#CFCFCF', 
   },
   profileImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    marginRight: 10,
+    width: 40, 
+    height: 45,
+    borderRadius: 5,
   },
 });
 

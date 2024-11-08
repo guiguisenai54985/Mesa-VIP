@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 
 const reservations = [
   { restaurant: "O'batista", date: '10/11/2024', time: '22:00' },
-  { restaurant: "O'batista", date: '10/11/2024', time: '22:00' },
-  { restaurant: "O'batista", date: '10/11/2024', time: '22:00' },
+  { restaurant: "Pizzaria do João", date: '11/11/2024', time: '19:30' },
+  { restaurant: "Churrascaria Fogo de Chão", date: '12/11/2024', time: '20:00' },
 ];
 
 const Reserva = () => {

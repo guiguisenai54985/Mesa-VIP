@@ -1,7 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } from 'react-native';
 
-const SobreNos = ({navigation }) => {
+const SobreNos = ({ navigation }) => {
+  // Definindo os dados do usuário que serão passados para a tela de reserva
+  const userData = {
+    nomeInicial: 'Seu Nome',  // Exemplo de valor; você pode substituí-lo dinamicamente
+    numPessoasInicial: '1',   // Exemplo de valor inicial
+    telefoneInicial: '+5511999999999',
+    dataInicial: '',           // Valor padrão pode ser alterado
+    horarioInicial: ''         // Valor padrão pode ser alterado
+  };
 
   const aoPressionarTelefone = () => {
     Linking.openURL(`tel:${'+5511999999999'}`); 

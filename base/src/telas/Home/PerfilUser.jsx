@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const ProfileScreen = ({ route, navigate }) => {
+const ProfileScreen = ({ route }) => {
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
@@ -10,17 +10,20 @@ const ProfileScreen = ({ route, navigate }) => {
 
     const navigation = useNavigation();
 
+    // Verifica se userData foi passado como parâmetro
     const { userData } = route.params || {};
-    console.log(userData)
+    console.log(userData);
 
+    // Função para navegar entre as telas
     const handlePress = (screenName) => {
         navigation.navigate(screenName, { userData });
     };
+
     return (
         <View style={styles.container}>
             <View style={styles.avatar}>
                 <Image
-                    source={require('../../../res/img/perfil.png')}
+                    source={require('../../../res/img/perfil.png')} // Ajuste o caminho conforme sua estrutura de arquivos
                     style={styles.profileImage}
                 />
             </View>
@@ -29,26 +32,30 @@ const ProfileScreen = ({ route, navigate }) => {
                 <Text style={styles.buttonText}>Editar Informações</Text>
             </TouchableOpacity>
             
-            <TextInput style={styles.InputStyle}
-                placeholder={userData.nome}
+            <TextInput
+                style={styles.InputStyle}
+                placeholder={userData?.nome || "Nome não disponível"}
                 placeholderTextColor={'black'}
                 onChangeText={setNome}
                 value={nome}
             />
-            <TextInput style={styles.InputStyle}
-                placeholder={userData.sobrenome}
+            <TextInput
+                style={styles.InputStyle}
+                placeholder={userData?.sobrenome || "Sobrenome não disponível"}
                 placeholderTextColor={'black'}
                 onChangeText={setSobrenome}
                 value={sobrenome}
             />
-            <TextInput style={styles.InputStyle}
-                placeholder={userData.email}
+            <TextInput
+                style={styles.InputStyle}
+                placeholder={userData?.email || "Email não disponível"}
                 placeholderTextColor={'black'}
                 onChangeText={setEmail}
                 value={email}
             />
-            <TextInput style={styles.InputStyle}
-                placeholder={userData.senha}
+            <TextInput
+                style={styles.InputStyle}
+                placeholder={userData?.senha || "Senha não disponível"}
                 placeholderTextColor={'black'}
                 onChangeText={setSenha}
                 value={senha}
@@ -77,9 +84,6 @@ const styles = StyleSheet.create({
     avatar: {
         alignItems: 'center',
         marginBottom: 20,
-    },
-    infoContainer: {
-        marginVertical: 20,
     },
     button: {
         backgroundColor: '#EDE6DB',

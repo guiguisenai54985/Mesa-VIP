@@ -3,9 +3,7 @@ import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, S
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Pagina = ({ route, navigation }) => {
-  const { userData } = route.params;
-  console.log(userData);
-   const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
+  const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
 
   const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
   const [mostrarDatePicker, setMostrarDatePicker] = useState(false);
@@ -30,15 +28,14 @@ const Pagina = ({ route, navigation }) => {
   };
 
   const aoClicarHorario = (horario) => {
-    console.log(horario)
     setHorarioSelecionado(horario);
     Alert.alert('Horário', `Horário ${horario} selecionado!`);
   };
 
   const aoMudarNumPessoas = (valor) => {
     const num = parseInt(valor);
-    if (num > 5) {
-      Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 5.');
+    if (num > 7) {
+      Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 7.');
     } else {
       setNumPessoas(valor);
     }
@@ -72,7 +69,8 @@ const Pagina = ({ route, navigation }) => {
                 <TouchableOpacity 
                   key={index} 
                   style={styles.circle} 
-                  onPress={() => aoClicarHorario(horario)}
+                  onPress={() => aoClicarHorario(horario
+                    )}
                 >
                   <Text style={styles.circleText}>{horario}</Text>
                 </TouchableOpacity>
@@ -81,6 +79,7 @@ const Pagina = ({ route, navigation }) => {
           </View>
           <View style={styles.formContainer}>
             <Text style={styles.formTitle}>📝</Text>
+            <TextInput placeholder="Nome Completo" style={styles.input} value={nome} onChangeText={setNome} />
             <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numPessoas} onChangeText={aoMudarNumPessoas} />
             <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={telefone} onChangeText={setTelefone} />
             <TouchableOpacity onPress={() => setMostrarDatePicker(true)}>
