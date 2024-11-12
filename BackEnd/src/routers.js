@@ -17,7 +17,7 @@ router.post('/api/validatelogin' , clientController.login) //validar login
 
 //rotas para reset
 router.post('/api/reset', clientController.getByEmailReset);//verificar o email de reset
-router.post('/api/resetPassword', clientController.resetPassword);//resetar a senha
+router.put('/api/resetPassword', clientController.resetPassword);//resetar a senha
 router.post('/api/resetInfo', clientController.resetInfo);//resetar senha
 
 //rotas para reservas

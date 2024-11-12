@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
-const reservations = [
-  { restaurant: "O'batista", date: '10/11/2024', time: '22:00' },
-  { restaurant: "Pizzaria do João", date: '11/11/2024', time: '19:30' },
-  { restaurant: "Churrascaria Fogo de Chão", date: '12/11/2024', time: '20:00' },
-];
+// const reservations = [
+//   { restaurant: "O'batista", date: '10/11/2024', time: '22:00' },
+//   { restaurant: "Pizzaria do João", date: '11/11/2024', time: '19:30' },
+//   { restaurant: "Churrascaria Fogo de Chão", date: '12/11/2024', time: '20:00' },
+// ];
 
 const Reserva = () => {
   return (
@@ -16,7 +16,7 @@ const Reserva = () => {
         <Text style={styles.headerText}>Hora</Text>
       </View>
       <ScrollView>
-        {reservations.map((reservation, index) => (
+        {/* {reservations.map((reservation, index) => (
           <View key={index} style={styles.row}>
             <Text style={styles.cell}>{reservation.restaurant}</Text>
             <View style={styles.dateDeleteContainer}>
@@ -27,7 +27,7 @@ const Reserva = () => {
             </View>
             <Text style={styles.cell}>{reservation.time}</Text>
           </View>
-        ))}
+        ))} */}
       </ScrollView>
     </View>
   );

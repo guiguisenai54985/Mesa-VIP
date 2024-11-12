@@ -46,6 +46,10 @@ const ResetSenha = ({navigation}) =>{
 
     const handleTrocarSenha = async () => {
         try{
+            if (!email || !novaSenha || !confirmaSenha) {
+                Alert.alert('Erro', 'Todos os campos são obrigatórios!');
+                return;
+            }
             //verificar se as senhas coincidem
             if(novaSenha !== confirmaSenha){
                 Alert.alert("as senhas não coincidem");
@@ -58,9 +62,9 @@ const ResetSenha = ({navigation}) =>{
             }
 
             //fazer a solicitação para trocar a senha
-            const response = await axios.post('http://10.0.2.2:8085/api/resetPassword', data);
+            const response = await axios.put('http://10.0.2.2:8085/api/resetPassword', data);
 
-            if(response.status === 200){
+            if(response.status === 201){
                 navigation.navigate('Login');
                 Alert.alert("senha trocada com sucesso");
             }
@@ -86,8 +90,6 @@ const ResetSenha = ({navigation}) =>{
 
 
             {!mostrarFormulario && (
-               
-
                 <Button 
                 title="Trocar senha"
                 buttonStyle={styles.button2Styles}
@@ -97,8 +99,6 @@ const ResetSenha = ({navigation}) =>{
             )}
             {mostrarFormulario && (
                 <>
-                   
-
                 <Input style={styles.EmailStyle}
                         placeholder='DIGITE SUA NOVA SENHA:'
                         placeholderTextColor={'black'}

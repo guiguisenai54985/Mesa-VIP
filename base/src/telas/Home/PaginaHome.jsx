@@ -24,8 +24,6 @@ const PaginaHome = ({ route, navigation }) => {
   const handlePress = (screenName) => {
     navigation.navigate(screenName, { userData });
   };
-
-
   
   return (
     <ScrollView style={styles.container}>

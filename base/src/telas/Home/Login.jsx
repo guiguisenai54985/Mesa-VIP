@@ -37,20 +37,18 @@ const Login = ({ navigation }) => {
 
       //Envio dos dados para a API
       const response = await axios.post('http://10.0.2.2:8085/api/validatelogin', data);
-      console.log(response);
       //Verificar se o login foi efetuado com sucesso
       if (response.status === 201) {
         setEmail('');
         setSenha('');
-        console.log(response);
         const userData = {
-          id: response.data.id,
-          nome: response.data.nome,
-          sobrenome: response.data.sobrenome,
-          email: response.data.email,
-          senha: response.data.senha,
+          id: response.data['0'].id,
+          nome: response.data['0'].nome,
+          sobrenome: response.data['0'].sobrenome,
+          email: response.data['0'].email,
+          senha: response.data['0'].senha,
         }
-        navigation.navigate('Home', { userData });
+       navigation.navigate('Home', { userData });
       }
       else {
         Alert.alert('Email ou senha incorretos')

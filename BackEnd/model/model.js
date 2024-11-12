@@ -5,7 +5,7 @@ const salt = 10;
 const useModel = {
     getAllUsers: async () => {
         const [result] = await connection.query("SELECT * FROM user")
-            .catch(err => console.log(erro));
+            .catch(erro => console.log(erro));
         return result
     },
 
@@ -42,7 +42,8 @@ const useModel = {
     
     //atualizar a senha
     updatedPassword: async (email, senha) => {
-        const result = await connection.query('UPDATE user SET senha=? where email=?', [senha, email])
+        const hashPassword = await bcrypt.hash(senha,salt);
+        const result = await connection.query('UPDATE user SET senha=? where email=?', [hashPassword, email])
             .catch(erro => console.log(erro));
         return result;
     },
@@ -58,7 +59,7 @@ const useModel = {
     //validar login
     validateLogin: async(email, senha) => {
         
-        const [result] = await connection.query("SELECT senha FROM user WHERE email=?" , [email])
+        const [result] = await connection.query("SELECT `id`, `nome`, `sobrenome`, `email`, `senha` FROM user WHERE email=?" , [email])
         try{
             if(result.length > 0){
                
@@ -80,7 +81,6 @@ const useModel = {
         catch(erro){
             console.log(erro)
         }
-    
     },
     //fim da model do login
 

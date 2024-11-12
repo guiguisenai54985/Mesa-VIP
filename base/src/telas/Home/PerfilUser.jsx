@@ -23,7 +23,7 @@ const ProfileScreen = ({ route }) => {
         <View style={styles.container}>
             <View style={styles.avatar}>
                 <Image
-                    source={require('../../../res/img/perfil.png')} // Ajuste o caminho conforme sua estrutura de arquivos
+                    source={require('../../../res/img/perfil.png')} 
                     style={styles.profileImage}
                 />
             </View>
@@ -34,32 +34,32 @@ const ProfileScreen = ({ route }) => {
             
             <TextInput
                 style={styles.InputStyle}
-                placeholder={userData?.nome || "Nome não disponível"}
+                placeholder={userData.nome}
                 placeholderTextColor={'black'}
                 onChangeText={setNome}
                 value={nome}
             />
             <TextInput
                 style={styles.InputStyle}
-                placeholder={userData?.sobrenome || "Sobrenome não disponível"}
+                placeholder={userData.sobrenome}
                 placeholderTextColor={'black'}
                 onChangeText={setSobrenome}
                 value={sobrenome}
             />
             <TextInput
                 style={styles.InputStyle}
-                placeholder={userData?.email || "Email não disponível"}
+                placeholder={userData.email}
                 placeholderTextColor={'black'}
                 onChangeText={setEmail}
                 value={email}
             />
-            <TextInput
+            {/* <TextInput
                 style={styles.InputStyle}
-                placeholder={userData?.senha || "Senha não disponível"}
+                placeholder={userData.senha}
                 placeholderTextColor={'black'}
                 onChangeText={setSenha}
                 value={senha}
-            />
+            /> */}
             
             <TouchableOpacity style={styles.button2} onPress={() => handlePress('Reserva')}>
                 <Text style={styles.buttonText}>Reservas</Text>
