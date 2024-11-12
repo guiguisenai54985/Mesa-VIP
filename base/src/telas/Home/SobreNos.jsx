@@ -4,11 +4,11 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } 
 const SobreNos = ({ navigation }) => {
   // Definindo os dados do usuário que serão passados para a tela de reserva
   const userData = {
-    nomeInicial: 'Seu Nome',  // Exemplo de valor; você pode substituí-lo dinamicamente
-    numPessoasInicial: '1',   // Exemplo de valor inicial
+    nomeInicial: 'Seu Nome',  
+    numPessoasInicial: '1',   
     telefoneInicial: '+5511999999999',
-    dataInicial: '',           // Valor padrão pode ser alterado
-    horarioInicial: ''         // Valor padrão pode ser alterado
+    dataInicial: '',           
+    horarioInicial: ''         
   };
 
   const aoPressionarTelefone = () => {

@@ -7,7 +7,6 @@ const ComprovantePage9 = ({ route, navigation }) => {
   const handleSalvarPress = () => {
     Alert.alert(
       'Comprovante salvo com sucesso!',
-      'Você será redirecionado para a página inicial.',
       [
         {
           text: 'OK',
