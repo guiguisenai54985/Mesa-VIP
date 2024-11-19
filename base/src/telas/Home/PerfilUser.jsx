@@ -28,8 +28,8 @@ const ProfileScreen = ({ route }) => {
                 />
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={() => handlePress('Editar Informações')}>
-                <Text style={styles.buttonText}>Editar Informações</Text>
+            <TouchableOpacity style={styles.button2} onPress={() => handlePress('Reserva')}>
+                <Text style={styles.buttonText}>Reservas</Text>
             </TouchableOpacity>
             
             <TextInput
@@ -53,16 +53,9 @@ const ProfileScreen = ({ route }) => {
                 onChangeText={setEmail}
                 value={email}
             />
-            {/* <TextInput
-                style={styles.InputStyle}
-                placeholder={userData.senha}
-                placeholderTextColor={'black'}
-                onChangeText={setSenha}
-                value={senha}
-            /> */}
-            
-            <TouchableOpacity style={styles.button2} onPress={() => handlePress('Reserva')}>
-                <Text style={styles.buttonText}>Reservas</Text>
+
+            <TouchableOpacity style={styles.button} onPress={() => handlePress('LogHome')}>
+                <Text style={styles.buttonText2}>Trocar de conta</Text>
             </TouchableOpacity>
         </View>
     );
@@ -91,6 +84,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         alignItems: 'center',
         width: 200,
+        height: 200,
     },
     button2: {
         backgroundColor: '#EDE6DB',
@@ -102,6 +96,12 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 16,
         fontWeight: 'bold',
+        color: 'black',
+    },
+    buttonText2: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'black',
     },
     profileImage: {
         width: 150,
@@ -119,6 +119,12 @@ const styles = StyleSheet.create({
         color: 'black',
         fontWeight: 'bold',
     },
+
+    ExitImage: {
+        width: 40,
+        height: 45,
+        borderRadius: 5,
+      },
 });
 
 export default ProfileScreen;

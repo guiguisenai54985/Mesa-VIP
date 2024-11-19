@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 //home
-import OnBoarding from "./src/telas/Home/OnBoarding";
+//import OnBoarding from "./src/telas/Home/OnBoarding";
 import ConfirmationPage from "./src/telas/Home/ConfirmationPage";
 import Confirmation2 from "./src/telas/Home/Confirmation2";
 import Confirmation3 from "./src/telas/Home/Confirmation3";
@@ -49,7 +49,7 @@ import ResetSenha from "./src/telas/Home/Reset";
 
 //perfil
 import ProfileScreen from "./src/telas/Home/PerfilUser";
-import ResetInfo from "./src/telas/Home/EditarInfo";
+//import ResetInfo from "./src/telas/Home/EditarInfo";
 import Reserva from "./src/telas/Home/Reservas";
 
 const Stack = createStackNavigator();
@@ -100,10 +100,10 @@ export default function App() {
         <Stack.Screen name="Pagina8" component={Pagina8} options={{ title: '', headerStyle: { backgroundColor: '#ffffff', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Pagina9" component={Pagina9} options={{ title: '', headerStyle: { backgroundColor: '#ffffff', height: 70 }, headerTitleStyle: { color: 'black', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Perfil" component={ProfileScreen} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen name="Editar Informações" component={ResetInfo} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
+        {/* <Stack.Screen name="Editar Informações" component={ResetInfo} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} /> */}
         <Stack.Screen name="Reserva" component={Reserva} options={{ title: '', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: 'black', fontSize: 20, fontWeight: 800, }, headerTitleAlign: 'center', }} />
         <Stack.Screen name="Reset" component={ResetSenha} options={{ title: 'MesaVIP', headerStyle: { backgroundColor: '#E3CFAF', height: 70, }, headerTitleStyle: { color: '#E3CFAF', fontSize: 25, fontWeight: 800, }, headerTitleAlign: 'center', }} />
-        <Stack.Screen options={{ title: '', headerTransparent: true, headerShown: true, headerStyle: { backgroundColor: '#649d23' }, headerTintColor: 'transparent', }} name="OnBoarding" component={OnBoarding} />
+        {/* <Stack.Screen options={{ title: '', headerTransparent: true, headerShown: true, headerStyle: { backgroundColor: '#649d23' }, headerTintColor: 'transparent', }} name="OnBoarding" component={OnBoarding} /> */}
 
       </Stack.Navigator>
     </NavigationContainer>

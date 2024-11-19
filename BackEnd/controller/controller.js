@@ -35,6 +35,7 @@ const userController = {
         }
     },
 
+    //buscar email para reset
     getByEmailReset: async (req, res) => {
         let { email } = req.body
 
@@ -57,6 +58,7 @@ const userController = {
         }
     },
 
+    //controller para reset
     resetPassword: async (req, res) => {
         let { email, senha } = req.body
 
@@ -72,6 +74,7 @@ const userController = {
         }
     },
 
+    //controller do reset
     resetInfo: async (req, res) => {
         let { nome, sobrenome, email, id } = req.body
 
@@ -87,14 +90,14 @@ const userController = {
         }
     },
 
-
+    //controller para atualizar as info do user
     updateUser: async (req, res) => {
         const { id } = req.body;
         try {
             const sql = await clientController.getByID(id)
 
             if (sql.length > 0) {
-                await clientController.updateUser(id)
+                await clientController.updateInfo(id)
                 res.status(201).json({ msg: "Atualizado com sucesso" })
             }
             else {

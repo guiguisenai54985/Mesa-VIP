@@ -21,13 +21,15 @@ const useModel = {
         return result
     },
 
-    //inicio da model do login
+    //inicio da model do usuario
+    
     //email para resetar senha 
     resetByEmail: async (email) => {
         const [result] = await connection.query('select * from user where email=?', [email])
         return result;
     },
 
+    //model para atualizar asinformaçõs do usuario
     updateInfo: async (nome, sobrenome, email, id) => {
         const result = await connection.query('update user set nome=?, sobrenome=?, email=? where id=?', [nome, sobrenome, email, id])
             .catch(erro => console.log(erro));
