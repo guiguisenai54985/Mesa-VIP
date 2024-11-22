@@ -35,30 +35,7 @@ const userController = {
         }
     },
 
-    // login: async (req, res) => {
-    //     let { email, senha } = req.body;
-
-    //     try {
-    //         const sql = await clientController.validateLogin(email, senha);
-
-
-    //         if (sql.length > 0 && sql[0].senha === senha) {
-    //             res.status(200).json(sql[0]);
-
-    //         }
-
-    //         else {
-    //             res.status(401).json({ msg: "Email ou senha incorretos" });
-    //         }
-    //     }
-    //     catch (error) {
-    //         if (error) {
-    //             console.log(error)
-    //             res.status(400).json({ error });
-    //         }
-    //     }
-    // },
-
+    //buscar email para reset
     getByEmailReset: async (req, res) => {
         let { email } = req.body
 
@@ -71,7 +48,7 @@ const userController = {
                 res.status(200).json({ msg: 'sucesso' })
             }
             else {
-                res.status(401).json({ msg: 'email não cadastrado no bd' });
+                res.status(401).json({ msg: 'email não cadastrado no banco de dados' });
             }
         }
         catch (error) {
@@ -81,6 +58,7 @@ const userController = {
         }
     },
 
+    //controller para reset
     resetPassword: async (req, res) => {
         let { email, senha } = req.body
 
@@ -88,14 +66,15 @@ const userController = {
 
         try {
             await clientController.updatedPassword(email, senha);
-            res.status(200).json({ msg: 'senha atualizada com sucesso' });
+            res.status(201).json({ msg: 'senha atualizada com sucesso' });
         }
         catch (error) {
             console.log('erro ao redefinir a senha')
-            res.status(400).json({ msg: 'erro no servidor' })
+            res.status(500).json({ msg: 'erro no servidor' })
         }
     },
 
+    //controller do reset
     resetInfo: async (req, res) => {
         let { nome, sobrenome, email, id } = req.body
 
@@ -103,23 +82,23 @@ const userController = {
 
         try {
             await clientController.updateInfo(nome, sobrenome, email, id);
-            res.status(200).json({ msg: 'senha atualizada com sucesso' });
+            res.status(201).json({ msg: 'senha atualizada com sucesso' });
         }
         catch (error) {
             console.log('erro ao redfinir a senha')
-            res.status(400).json({ msg: 'erro no servidor' })
+            res.status(500).json({ msg: 'erro no servidor' })
         }
     },
 
-
+    //controller para atualizar as info do user
     updateUser: async (req, res) => {
         const { id } = req.body;
         try {
             const sql = await clientController.getByID(id)
 
             if (sql.length > 0) {
-                await clientController.updateUser(id)
-                res.status(200).json({ msg: "Atualizado com sucesso" })
+                await clientController.updateInfo(id)
+                res.status(201).json({ msg: "Atualizado com sucesso" })
             }
             else {
                 res.status(401).json({ msg: "O id nao existe na base de dados" })
@@ -127,7 +106,7 @@ const userController = {
         }
         catch (erro) {
             if (erro) {
-                res.status(400).json({ msg: "Erro no servidor" + erro })
+                res.status(500).json({ msg: "Erro no servidor" + erro })
             }
         }
     },
@@ -158,7 +137,7 @@ const userController = {
         try{
             const sql = await clientController.validateLogin(email, senha);
             if(sql != null){
-                res.status(201).json({msg: 'Usuário válidado com sucesso'});
+                res.status(201).json(sql);
             }
             else{
                 res.status(401).json({msg: 'credenciais inválidas'})

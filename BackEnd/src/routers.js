@@ -6,10 +6,8 @@ router.get("/", clientController.getRoot); //Rota raiz
 router.get("/api/read", clientController.listAllUsers); //Listar tds os usuarios
 router.get("/api/read/:id", clientController.listByID); // Listar por id
 
-//router.post('/api/registerImage', clientController.registerImageProfile);//verificar o email de reset
-
 //perfil
-router.put('/api/registerImage/:id', clientController.updateUser);
+router.put('/api/updateinfo/:id', clientController.updateUser);
 
 //rotas para login
 router.post('/api/cadastrouserhash' , clientController.cadastroUser) //cadastrar usuario
@@ -17,7 +15,7 @@ router.post('/api/validatelogin' , clientController.login) //validar login
 
 //rotas para reset
 router.post('/api/reset', clientController.getByEmailReset);//verificar o email de reset
-router.post('/api/resetPassword', clientController.resetPassword);//resetar a senha
+router.put('/api/resetPassword', clientController.resetPassword);//resetar a senha
 router.post('/api/resetInfo', clientController.resetInfo);//resetar senha
 
 //rotas para reservas

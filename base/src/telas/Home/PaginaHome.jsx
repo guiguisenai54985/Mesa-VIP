@@ -25,8 +25,6 @@ const PaginaHome = ({ route, navigation }) => {
     navigation.navigate(screenName, { userData });
   };
 
-
-  
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -148,28 +146,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3CFAF',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 15, 
+    margin: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2, 
+    shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 5, 
+    elevation: 5,
   },
   logo: {
-    width: '80%', 
+    width: '80%',
     height: '80%',
     borderRadius: 50,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 15, 
-    backgroundColor: '#FFF', 
+    padding: 15,
+    backgroundColor: '#E3CFAF',
     borderBottomWidth: 1,
-    borderBottomColor: '#CFCFCF', 
+    borderBottomColor: '#CFCFCF',
   },
   profileImage: {
-    width: 40, 
+    width: 40,
     height: 45,
     borderRadius: 5,
   },
