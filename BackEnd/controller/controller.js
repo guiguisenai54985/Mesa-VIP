@@ -209,6 +209,64 @@ const userController = {
         }
     },
 
+    indexhorario: async (req, res) => {
+        try{
+            const horario = await clientController.indexHorario(horario);
+            await clientController.indexHorario();
+            return res.status(200).json(horario);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    showHorario: async (req, res) => {
+        const id = req.params.id
+        try {
+            const [horario] = await clientController.showHorario(id);
+            if (!horario) {
+                throw new Error('Nenhuma horario encontrada nesse id.');
+            }
+            return res.status(200).json(horario);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    createHorario: async (req, res) => {
+        const { horario } = req.body;
+        try {
+            await clientController.createHorario({ horario });
+            return res.status(201).json({ msg: 'Horario cadastrado com sucesso' });
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    updateHorario: async (req, res) => {
+        const { horario } = req.body;
+        const id = req.params.id;
+        try {
+            const hora = await clientController.updateHorario({ horario, id });
+            return res.status(201).json(hora);
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
+
+    deleteHorario: async (req, res) => {
+        const id = req.params.id;
+        try {
+            await clientController.deleteHorario(id);
+            return res.status(204).json({ msg: 'Horario excluida com sucesso' });
+        } catch(error) {
+            console.log(error);
+            return res.status(400).json({ error })
+        }
+    },
 };
 
 module.exports = userController;

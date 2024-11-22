@@ -112,6 +112,30 @@ const useModel = {
         return result;
     },
 
+    indexHorario: async () => {
+        const [result] = await connection.query("select id_restaurante, group_concat ('id_horario') as id_horario from restaurante_horario where restaurante_id=? group by id_restaurante");
+        return result;
+    },
+
+    showHorario: async () => {
+        const [result] = await connection.query("select id_restaturante, id_horario from restaurante_horario where id_restaurante=? and id_horario=?");
+        return result;
+    },
+
+    createHorario: async () => {
+        const [result] = await connection.query("INSERT INTO `restaurante_horario`(`id_restaurante` `id_horario`) VALUES ('?','?')");
+        return result;
+    },
+
+    updateHorario: async () => {
+        const [result] = await connection.query("UPDATE `restaurante_horario` SET `id_restaurante`='?',`id_horario`='?' WHERE id_restaurante=? and id_horario=?");
+        return result;
+    },
+
+    deleteHorario: async () => {
+        const [result] = await connection.query("delete from restaurante_horario where id_restaurante=? and id_horario=?");
+        return result;
+    },
 };
 
 module.exports = useModel;
