@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, SafeAreaView, View, ScrollView, Alert, KeyboardAvoidingView, StyleSheet } from "react-native";
+import {  SafeAreaView, View, ScrollView, Alert,  StyleSheet } from "react-native";
 import { useState } from "react";
 import { Text, } from '@rneui/themed';
 import { Button } from '@rneui/themed';
@@ -130,7 +130,7 @@ const Styles = StyleSheet.create({
     container: {
       height: 500,
       flex: 1,
-      backgroundColor: '#EDE6DB',
+      backgroundColor: '#FFF200',
     },
     //registrese
     h1Style: {
@@ -166,9 +166,9 @@ const Styles = StyleSheet.create({
     //form
     nomeStyle: {
       marginVertical: 10,
-      backgroundColor: '#E3CFAF',
+      backgroundColor: '#FFFFFF',
       borderWidth: 2,
-      borderColor: '#E3CFAF',
+      borderColor: '#000',
       borderRadius: 10,
       fontSize: 11,
       color: '#000000',
@@ -178,9 +178,9 @@ const Styles = StyleSheet.create({
     },
     sobrenomeStyle: {
       marginVertical: -10,
-      backgroundColor: '#E3CFAF',
+      backgroundColor: '#FFFFFF',
       borderWidth: 2,
-      borderColor: '#E3CFAF',
+      borderColor: '#000',
       borderRadius: 10,
       fontSize: 11,
       color: '#000000',
@@ -199,7 +199,8 @@ const Styles = StyleSheet.create({
   
     buttonStyle: {
       alignItens: 'center',
-      backgroundColor: '#E3CFAF',
+      backgroundColor: '#FFFFFF',
+
       borderRadius: 14,
     },
   
@@ -224,9 +225,9 @@ const Styles = StyleSheet.create({
   
     emailStyle: {
       marginVertical: 10,
-      backgroundColor: '#E3CFAF',
+      backgroundColor: '#FFFFFF',
       borderWidth: 2,
-      borderColor: '#E3CFAF',
+      borderColor: '#000',
       borderRadius: 10,
       fontSize: 11,
       color: '#000000',
@@ -234,9 +235,9 @@ const Styles = StyleSheet.create({
     },
     senhaStyle: {
       marginVertical: -10,
-      backgroundColor: '#E3CFAF',
+      backgroundColor: '#FFFFFF',
       borderWidth: 2,
-      borderColor: '#E3CFAF',
+      borderColor: '#000',
       borderRadius: 10,
       fontSize: 11,
       color: '#000000',
@@ -266,7 +267,7 @@ const Styles = StyleSheet.create({
     },
   
     textBTM: {
-      backgroundColor: '#EDE6DB',
+      backgroundColor: '#FFF200',
     }
   });
 

@@ -1,19 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const ComprovantePage = ({ route, navigation }) => {
   const { name, numPeople, phone, selectedDate, selectedTime } = route.params;
 
   const handleSalvarPress = () => {
-    Alert.alert(
-      'Comprovante salvo com sucesso!',
-      [
-        {
-          text: 'OK',
-          onPress: () => navigation.navigate('Home'),
-        },
-      ],
-    );
+   
+    navigation.navigate('Home');
   };
 
   return (
@@ -22,7 +15,7 @@ const ComprovantePage = ({ route, navigation }) => {
         <Text style={styles.title}>Comprovante de Reserva</Text>
       </View>
       <View style={styles.content}>
-      <Text style={styles.info}>𝗛𝗼𝗿𝗮𝗿𝗶𝗼 𝗱𝗼 𝗰𝗮𝗱𝗮𝘀𝘁𝗿𝗼: 𝟬𝟴:𝟯𝟬</Text>
+        <Text style={styles.info}>𝗛𝗼𝗿𝗮𝗿𝗶𝗼 𝗱𝗼 𝗰𝗮𝗱𝗮𝘀𝘁𝗿𝗼: 𝟬𝟴:𝟯𝟬</Text>
         <Text style={styles.label}>Nome:</Text>
         <Text style={styles.info}>{name}</Text>
         <Text style={styles.label}>Número de pessoas:</Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Animated } from 'react-native';
 
 const reservations = [
   { restaurante: "O'batista", data: '10/11/2024', hora: '22:00' },
@@ -8,6 +8,20 @@ const reservations = [
 ];
 
 const Reserva = () => {
+  const animatedValue = new Animated.Value(0);
+
+  const fadeIn = () => {
+    Animated.timing(animatedValue, {
+      toValue: 1,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  React.useEffect(() => {
+    fadeIn();
+  }, []);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -15,20 +29,22 @@ const Reserva = () => {
         <Text style={styles.headerText}>Data</Text>
         <Text style={styles.headerText}>Hora</Text>
       </View>
-      <ScrollView>
-        {reservations.map((reservation, index) => (
-          <View key={index} style={styles.row}>
-            <Text style={styles.cell}>{reservation.restaurante}</Text>
-            <View style={styles.dateDeleteContainer}>
-              <Text style={styles.cell}>{reservation.data}</Text>
-              <TouchableOpacity>
-                <Text style={styles.deleteText}>Deletar</Text>
-              </TouchableOpacity>
+      <Animated.View style={{ opacity: animatedValue }}>
+        <ScrollView>
+          {reservations.map((reservation, index) => (
+            <View key={index} style={styles.row}>
+              <Text style={styles.cell}>{reservation.restaurante}</Text>
+              <View style={styles.dateDeleteContainer}>
+                <Text style={styles.cell}>{reservation.data}</Text>
+                <TouchableOpacity>
+                  <Text style={styles.deleteText}>Deletar</Text>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.cell}>{reservation.hora}</Text>
             </View>
-            <Text style={styles.cell}>{reservation.hora}</Text>
-          </View>
-        ))}
-      </ScrollView>
+          ))}
+        </ScrollView>
+      </Animated.View>
     </View>
   );
 };
@@ -36,29 +52,42 @@ const Reserva = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EDE6DB',
+    backgroundColor: '#FFF200', 
     padding: 10,
   },
   header: {
     flexDirection: 'row',
-    backgroundColor: '#EDE6DB',
+    backgroundColor: '#FF5252', 
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderColor: '#000',
+    borderRadius: 10, 
+    shadowColor: '#000', // Sombra
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
   headerText: {
     flex: 1,
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 17,
-    color: 'black',
+    color: 'white', 
   },
   row: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderColor: '#000',
-    backgroundColor: '#EDE6DB',
-    paddingVertical: 10,
+    backgroundColor: '#FFC1C1', // Cor de fundo das linhas
+    paddingVertical: 15,
+    borderRadius: 10, // 
+    marginVertical: 5, // Espaçamento das linhas
+    shadowColor: '#000', // Sombra para as linhas
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 2,
   },
   cell: {
     flex: 1,
@@ -72,9 +101,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   deleteText: {
-    color: 'black',
+    color: '#FF5252', 
     marginTop: 5,
     fontWeight: 'bold',
+    textDecorationLine: 'underline', // Sublinhado para o texto de deletar
   },
 });
 

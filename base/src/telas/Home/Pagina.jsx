@@ -112,7 +112,7 @@ const Pagina = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFF200',
   },
   scrollContainer: {
     flexGrow: 1,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   circleBackgroundContainer: {
     width: '100%',
     maxWidth: 600,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#FFFFFF',
     padding: 20,
     borderRadius: 15,
     alignItems: 'center',
@@ -145,13 +145,13 @@ const styles = StyleSheet.create({
     width: 90,
     height: 50,
     borderRadius: 25,
-    backgroundColor: '#858078',
+    backgroundColor: '#FFE4E1',
     justifyContent: 'center',
     alignItems: 'center',
     margin: 5,
   },
   circleText: {
-    color: '#FFFFFF',
+    color: '#000',
     fontWeight: 'bold',
   },
   formContainer: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     maxWidth: 600,
     padding: 20,
     borderRadius: 10,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#FFFFFF',
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 15,
-    color: '#FFFFFF',
+    color: '#FFE4E1',
     textAlign: 'center',
   },
   input: {
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#CCC',
+    borderColor: '#000',
     borderRadius: 5,
     backgroundColor: '#F9F9F9',
   },
@@ -187,13 +187,13 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 15,
     borderRadius: 10,
-    backgroundColor: '#89847C',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 2,
+    
   },
   submitButtonText: {
-    color: '#FFFFFF',
+    color: '#FA8072',
     fontSize: 18,
     fontWeight: 'bold',
   },

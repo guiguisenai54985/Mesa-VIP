@@ -18,8 +18,7 @@ const ConfirmationPage = ({ route, navigation }) => {
         selectedTime,
         registrationTime,
     });
-};
-
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -48,7 +47,7 @@ const ConfirmationPage = ({ route, navigation }) => {
           <Image source={{ uri: 'https://i.pinimg.com/564x/01/df/b0/01dfb09a43f77e14aaab362440ea6201.jpg' }} style={styles.logo} />
           <Image source={{ uri: 'https://i.pinimg.com/564x/8f/95/b0/8f95b0d78273dcaffffa96427993e163.jpg' }} style={styles.logo} />
         </View>
-        <Text style={styles.footerText}>𝐁𝐞𝐥𝐥𝐚 𝐌𝐚𝐬𝐬𝐚 𝐚𝐠𝐫𝐚𝐝𝐞𝐜𝐞 𝐩𝐨𝐫 𝐞𝐬𝐜𝐨𝐥𝐡𝐞𝐫 𝐧𝐨𝐬𝐬𝐨 𝐬𝐞𝐫𝐯𝐢𝐜̧𝐨. 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨!</Text>
+        <Text style={styles.footerText}> 𝐄𝐬𝐭𝐚𝐦𝐨𝐬 𝐚𝐧𝐬𝐢𝐨𝐬𝐨𝐬 𝐩𝐚𝐫𝐚 𝐫𝐞𝐜𝐞𝐛𝐞̂-𝐥𝐨!</Text>
       </View>
     </SafeAreaView>
   );
@@ -57,16 +56,17 @@ const ConfirmationPage = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFF200',
     justifyContent: 'center',
+    padding: 10,
   },
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '60%',
-    padding: 5,
-    backgroundColor: '#FFFFFF',
+    width: '100%',
+    padding: 15,
+    backgroundColor: '#FFC1C1', 
     borderRadius: 10,
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
@@ -76,28 +76,30 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   title: {
-    fontSize: 17,
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 15,
     textAlign: 'center',
+    color: '#000',
   },
   info: {
     fontSize: 16,
-    marginBottom: 10,
+    marginBottom: 12,
     textAlign: 'center',
+    color: '#000',
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '85%',
-    marginTop: 20,
+    width: '100%',
+    marginTop: 30,
   },
   editButton: {
     flex: 1,
     marginRight: 5,
-    padding: 5,
-    backgroundColor: '#89847C',
-    borderRadius: 2,
+    padding: 12,
+    backgroundColor: '#FF5252',
+    borderRadius: 10,
     alignItems: 'center',
   },
   editButtonText: {
@@ -107,10 +109,10 @@ const styles = StyleSheet.create({
   },
   continueButton: {
     flex: 1,
-    marginLeft: 2,
-    padding: 10,
-    backgroundColor: '#89847C',
-    borderRadius: 2,
+    marginLeft: 5,
+    padding: 12,
+    backgroundColor: '#FF5252',
+    borderRadius: 10,
     alignItems: 'center',
   },
   continueButtonText: {
@@ -120,26 +122,25 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#E0E0E0',
+    marginTop: 10,
+    backgroundColor: '#FFF200',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
   },
   logoContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     width: '100%',
     marginBottom: 10,
   },
   logo: {
-    width: 120,
-    height: 120,
+    width: 80,
+    height: 80,
     resizeMode: 'contain',
   },
   footerText: {
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
-    color: '#666666',
+    color: '#000',
     marginTop: 10,
   },
 });

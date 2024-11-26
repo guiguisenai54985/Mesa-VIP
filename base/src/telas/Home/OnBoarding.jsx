@@ -8,7 +8,7 @@ const slides = [
         id: 1,
         title: 'Bem-vindo Ao MesaVIP!',
         description: ' O nosso aplicativo oferece uma maneira fácil e rápida de reservar mesas em diversos restaurantes da sua região. Com poucos cliques, você pode garantir o seu lugar e desfrutar de uma experiência gastronômica maravilhosa!',
-        image: { uri: 'https://img.freepik.com/premium-vector/restaurant-concept-with-people-scene-flat-cartoon-design-girl-decided-have-dinner_198565-6819.jpg?w=996' }
+        image: { uri: 'https://img.freepik.com/free-vector/cute-couple-eating-dinner-restaurant_23-2147658368.jpg?t=st=1732639276~exp=1732642876~hmac=9bf761ca3fe92d49d81d2fe6c82417ee749305d96160cdd2017b11cf0e6a0279&w=740' }
     },
     {
         id: 3,
@@ -94,7 +94,7 @@ export default function OnBoarding({navigation}) {
                 renderSkipButton={() => buttonLabel("Skip")}
                 renderDoneButton={() => buttonLabel("Done")}
                 onDone={() => {
-                    navigation.navigate('LogHome')
+                    navigation.navigate('Login')
                 }}
             />
         )

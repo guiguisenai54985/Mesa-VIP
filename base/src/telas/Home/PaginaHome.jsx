@@ -1,175 +1,176 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import React, { useRef } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, FlatList, ScrollView, Animated } from 'react-native';
+const PaginaHome = () => {
+  const navigation = useNavigation();
+  const [nomeUsuario, setNomeUsuario] = useState('');
 
-const sampleNews = [
-  {
-    image: 'https://img.freepik.com/premium-vector/restaurant-menu-design_12454-6730.jpg?w=740',
-  },
-  {
-    image: 'https://img.freepik.com/premium-vector/view-city-from-window-with-view-city_1250126-8379.jpg?w=740',
-  },
-  {
-    image: 'https://img.freepik.com/premium-vector/diverse-array-fresh-fruits-vegetables-displayed-wooden-crates-rustic-wooden-background_597121-40768.jpg?w=740',
-  },
-  {
-    image: 'https://img.freepik.com/premium-vector/couple-having-dinner-restaurant-lovers-different-races-have-lunch_88272-4212.jpg?w=900',
-  },
-];
+  const itensMenu = [
+    { id: '1', nome: 'Espanhol', imagem: 'https://img.freepik.com/premium-vector/print-label-vintage_1313902-591.jpg?w=740' },
+    { id: '2', nome: 'Hot Dog Express', imagem: 'https://img.freepik.com/premium-vector/print-label-vintage_1313902-572.jpg?w=740' },
+    { id: '3', nome: 'Rock Food', imagem: 'https://img.freepik.com/premium-vector/restaurant-design_24877-32744.jpg?w=740' },
+    { id: '4', nome: 'Fast Food', imagem: 'https://img.freepik.com/free-vector/food-white-background_24908-61023.jpg?t=st=1732621394~exp=1732624994~hmac=0e2f922bb95be508a39fe4efc94227872dd92eb59240e8f669fa7f86063a8282&w=740' },
+  ];
 
-const PaginaHome = ({ route, navigation }) => {
-  const { userData } = route.params || {};
-  const scaleAnim = useRef(new Animated.Value(1)).current;
+  //  armazenar o nome do restaurante
+  const cadastrarRestaurante = async (nomeRestaurante) => {
+    try {
+      let restaurantes = await AsyncStorage.getItem('restaurantes');
+      restaurantes = restaurantes ? JSON.parse(restaurantes) : [];
+      
+      // novo restaurante à lista
+      restaurantes.push(nomeRestaurante);
+      await AsyncStorage.setItem('restaurantes', JSON.stringify(restaurantes));
+      console.log('Restaurante cadastrado:', nomeRestaurante);
+    } catch (error) {
+      console.error('Erro ao cadastrar restaurante:', error);
+    }
+  }
 
-  const handlePress = (screenName) => {
-    navigation.navigate(screenName, { userData });
-  };
+  const renderizarItemMenu = ({ item }) => (
+    <View style={estilos.itemMenu}>
+      <TouchableOpacity
+        onPress={() => {
+          cadastrarRestaurante(item.nome); 
+          // Redireciona  a página correspondente
+          if (item.id === '1') {
+            navigation.navigate('SobreNos');  
+          } else if (item.id === '2') {
+            navigation.navigate('SobreNos2'); 
+          } else if (item.id === '3') {
+            navigation.navigate('SobreNos3'); 
+          } else if (item.id === '4') {
+            navigation.navigate('SobreNos4'); 
+          }
+        }}
+      >
+        <Image source={{ uri: item.imagem }} style={estilos.imagemMenu} />
+        <Text style={estilos.textoMenu}>{item.nome}</Text>
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => handlePress('Perfil')}>
-          <Image
-            source={require('../../../res/img/icon.png')}
-            style={styles.profileImage}
-          />
+    <View style={estilos.container}>
+      {/* Barra de Pesquisa */}
+      <View style={estilos.containerPesquisa}>
+        <Icon name="search" size={24} color="#000" style={estilos.iconePesquisa} />
+        <TextInput style={estilos.inputPesquisa} placeholder="Pesquisar" />
+      </View>
+      
+      <View style={estilos.cabecalho}>
+        <TouchableOpacity>
+          <Text style={estilos.seta}>{'<'}</Text>
+        </TouchableOpacity>
+        <Text style={estilos.tituloMenu}>{`Olá, ${nomeUsuario}`}</Text>
+        <TouchableOpacity>
+          <Text style={estilos.seta}>{'>'}</Text>
         </TouchableOpacity>
       </View>
 
+      {/* Grade do Menu */}
       <FlatList
-        data={sampleNews}
-        horizontal
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image source={{ uri: item.image }} style={styles.cardImage} />
-          </View>
-        )}
-        showsHorizontalScrollIndicator={false}
-        style={styles.cardList}
+        data={itensMenu}
+        renderItem={renderizarItemMenu}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+        contentContainerStyle={estilos.listaMenu}
       />
 
-      <View style={styles.tabela}>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos')}>
-          <Image
-            source={require('../../../res/img/image1.png')}
-            style={styles.logo}
-          />
+      {/* Navegação Inferior */}
+      <View style={estilos.navegacaoInferior}>
+        <TouchableOpacity style={estilos.botaoNav} onPress={() => navigation.navigate('PaginaInicial')}>
+          <Icon name="home" size={24} color="#000" />
+          <Text>Início</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos2')}>
-          <Image
-            source={require('../../../res/img/image2.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos3')}>
-          <Image
-            source={require('../../../res/img/image3.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos4')}>
-          <Image
-            source={require('../../../res/img/image4.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos5')}>
-          <Image
-            source={require('../../../res/img/image5.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos6')}>
-          <Image
-            source={require('../../../res/img/image6.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos7')}>
-          <Image
-            source={require('../../../res/img/image7.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos8')}>
-          <Image
-            source={require('../../../res/img/image8.png')}
-            style={styles.logo}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.roundBackground} onPress={() => handlePress('SobreNos9')}>
-          <Image
-            source={require('../../../res/img/image9.png')}
-            style={styles.logo}
-          />
+      
+        <TouchableOpacity 
+          style={estilos.botaoNav} 
+          onPress={() => navigation.navigate('PerfilUser')} 
+        >
+          <Icon name="person" size={24} color="#000" />
+          <Text>Perfil</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
+const estilos = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EDE6DB',
+    backgroundColor: '#FFF200',
   },
-  cardList: {
-    marginVertical: 10,
-  },
-  card: {
-    backgroundColor: '#EDE6DB',
-    borderRadius: 10,
-    marginHorizontal: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 2,
-  },
-  cardImage: {
-    width: 250,
-    height: 250,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-  },
-  tabela: {
+  containerPesquisa: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginBottom: 50,
-  },
-  roundBackground: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: '#E3CFAF',
-    justifyContent: 'center',
     alignItems: 'center',
-    margin: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
-  logo: {
-    width: '80%',
-    height: '80%',
-    borderRadius: 50,
+  iconePesquisa: {
+    marginRight: 10,
   },
-  header: {
+  inputPesquisa: {
+    backgroundColor: '#FFC1C1',
+    borderRadius: 10,
+    padding: 10,
+    fontSize: 16,
+    color: '#000',
+    flex: 1,
+  },
+  cabecalho: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 15,
-    backgroundColor: '#E3CFAF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#CFCFCF',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginVertical: 10,
   },
-  profileImage: {
-    width: 40,
-    height: 45,
-    borderRadius: 5,
+  seta: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  tituloMenu: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  listaMenu: {
+    paddingHorizontal: 10,
+  },
+  itemMenu: {
+    flex: 1,
+    margin: 10,
+    backgroundColor: '#FF5252',
+    borderRadius: 10,
+    alignItems: 'center',
+    paddingVertical: 10,
+  },
+  imagemMenu: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    marginBottom: 10,
+  },
+  textoMenu: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#FFF',
+    textAlign: 'center',
+  },
+  navegacaoInferior: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#FFF200',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+  },
+  botaoNav: {
+    alignItems: 'center',
   },
 });
 
