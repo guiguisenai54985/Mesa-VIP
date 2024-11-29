@@ -176,10 +176,10 @@ const userController = {
     },
 
     createReserva: async (req, res) => {
-        const { telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user } = req.body;
+        const { telefone, n_pessoas, id_hora, data_reserva, id_restaurante, id_user } = req.body;
         try {
-            await clientController.createReserva({telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user});
-            return res.status(201).json({ msg: 'Cadastrado com sucesso' });
+            await clientController.createReserva({telefone, n_pessoas, id_hora, data_reserva, id_restaurante, id_user});
+            return res.status(201).json({ msg: 'Reserva cadastrada com sucesso' });
         } catch(error) {
             console.log(error);
             return res.status(400).json({ error })
@@ -187,10 +187,10 @@ const userController = {
     },
 
     updateReserva: async (req, res) => {
-        const { telefone, n_pessoas, hora, data_reserva } = req.body;
+        const { telefone, n_pessoas, id_hora, data_reserva } = req.body;
         const id = req.params.id;
         try {
-            const reserva = await clientController.updateReserva({telefone, n_pessoas, hora, data_reserva, id});
+            const reserva = await clientController.updateReserva({telefone, n_pessoas, id_hora, data_reserva, id});
             return res.status(201).json(reserva);
         } catch(error) {
             console.log(error);

@@ -1,14 +1,19 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Linking, Image } from 'react-native';
 
-const SobreNos = ({ navigation }) => {
-  const userData = {
+const SobreNos = ({ navigation, route }) => {
+  const { userData } = route.params || {};
+  const userDados = {
     nomeInicial: 'Seu Nome',
     numPessoasInicial: '1',
     telefoneInicial: '+5511999999999',
     dataInicial: '',
-    horarioInicial: ''
+    horarioInicial: '',
+    restauranteId: '1',
+    id_user: userData.id
   };
+
+  
 
   const aoPressionarTelefone = () => {
     Linking.openURL(`tel:${'+5511999999999'}`);
@@ -68,7 +73,7 @@ const SobreNos = ({ navigation }) => {
       <View style={estilos.containerBotao}>
         <TouchableOpacity 
           style={estilos.botao} 
-          onPress={() => navigation.navigate('Pagina', { userData })}
+          onPress={() => navigation.navigate('Pagina', { userDados })}
         >
           <Text style={estilos.textoBotao}>Fazer Reserva</Text>
         </TouchableOpacity>
@@ -81,75 +86,64 @@ const estilos = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: '#F9F9F9', // Fundo mais claro e contemporâneo
+    backgroundColor: '#F5F5F5',
     alignItems: 'center',
   },
   imagem: {
     width: '100%',
-    height: 220,
+    height: 200,
     borderRadius: 10,
     marginBottom: 20,
-    borderWidth: 0, // Remover borda para um visual mais limpo
-    shadowColor: '#ccc',  // Leve sombra
-    shadowOffset: {width: 0, height: 2}, // Offset
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
   },
   titulo: {
-    fontSize: 28, // Aumentar tamanho do título
-    fontWeight: '700', // Font-weight mais robusto
-    color: '#2C3E50', // Azul escuro
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
     marginBottom: 10,
     textAlign: 'center',
   },
   descricao: {
-    fontSize: 17,
-    color: '#34495E', // Texto mais escuro 
+    fontSize: 16,
+    color: '#666',
     marginBottom: 20,
     textAlign: 'center',
   },
   tituloSecao: {
-    fontSize: 22, // Aumentar título da seção
-    fontWeight: '600', // Negrito moderado
-    color: '#2980B9', // Tom de azul vibrante
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
     marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#BDC3C7', // Cor de borda mais clara
-    paddingBottom: 5,
   },
   textoInfo: {
     fontSize: 16,
-    color: '#7F8C8D', // Cinza para texto de informação
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-  containerBotao: {
-    borderWidth: 1,
-    borderColor: '#DADAD9',  // Borda mais suave
-    borderRadius: 10, // Bordas mais arredondadas
-    marginBottom: 15,
-    overflow: 'hidden',
-    backgroundColor: '#fff', // Fundo branco para contraste
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 4, // Aumento da sombra em dispositivos Android
+    color: '#666',
+    marginBottom: 10,
   },
   botao: {
-    backgroundColor: '#8E44AD', // Tom de roxo moderno
-    paddingVertical: 12, 
-    paddingHorizontal: 20,
-    borderRadius: 10,
+    backgroundColor: '#89847C',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
     alignItems: 'center',
     justifyContent: 'center',
   },
   textoBotao: {
-    color: '#FFFFFF',
-    fontSize: 18, // Tamanho de texto maior para os botões
+    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  botaoHome: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: '#6A6760',
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  textoBotaoHome: {
+    color: '#FFF',
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

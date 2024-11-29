@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Text, TouchableOpacity, Platform, Alert, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import axios from 'axios';
 
 const Pagina = ({ route, navigation }) => {
-  const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial } = route.params || {};
+
+  const { userDados } = route.params || {};
+
+  const { nomeInicial, numPessoasInicial, telefoneInicial, dataInicial, horarioInicial, restauranteId } = route.params || {};
 
   const [dataSelecionada, setDataSelecionada] = useState(dataInicial || '');
   const [mostrarDatePicker, setMostrarDatePicker] = useState(false);
-  const [nome, setNome] = useState(nomeInicial || '');
   const [numPessoas, setNumPessoas] = useState(numPessoasInicial || '');
   const [telefone, setTelefone] = useState(telefoneInicial || '');
   const [horarioSelecionado, setHorarioSelecionado] = useState(horarioInicial || null);
 
   useEffect(() => {
     setDataSelecionada(dataInicial || '');
-    setNome(nomeInicial || '');
     setNumPessoas(numPessoasInicial || '');
     setTelefone(telefoneInicial || '');
     setHorarioSelecionado(horarioInicial || null);
@@ -26,6 +28,16 @@ const Pagina = ({ route, navigation }) => {
       setDataSelecionada(data.toISOString().split('T')[0]);
     }
   };
+  const [formData, setFormData] = useState({
+    id_user: '3',
+    id_restaurante: '1',
+    id_hora: '17:00',
+    telefone: 14912345678,
+    n_pessoas: 5,
+    data_reserva: '2024-11-29'
+  });
+
+
 
   const aoClicarHorario = (horario) => {
     setHorarioSelecionado(horario);
@@ -34,29 +46,41 @@ const Pagina = ({ route, navigation }) => {
 
   const aoMudarNumPessoas = (valor) => {
     const num = parseInt(valor);
-    if (num > 7) {
+    if (num > 10) {
       Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 7.');
     } else {
       setNumPessoas(valor);
     }
   };
 
-  const aoEnviar = () => {
-    if (!nome || !numPessoas || !telefone || !dataSelecionada || !horarioSelecionado) {
+  const aoEnviar = async () => {
+   
+    if ( !numPessoas || !telefone || !dataSelecionada || !horarioSelecionado) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos e selecione um horário.');
       return;
     }
-
     // Enviando os dados para a página de confirmação
-    navigation.navigate('ConfirmationPage', {
-      name: nome,
-      numPeople: numPessoas,
-      phone: telefone,
-      selectedDate: dataSelecionada,
-      selectedTime: horarioSelecionado,
-    });
-
-    Alert.alert('Sucesso', 'Reserva realizada com sucesso!');
+    try {
+    
+      await axios.post('http://10.0.2.2:8085/api/criarReserva', formData);
+      Alert.alert('Reserva realizada com sucesso!!', 'Obrigado pela sua preferencia');
+      setFormData('');
+      navigation.navigate('ConfirmationPage', {
+        numPeople: numPessoas,
+        phone: telefone,
+        selectedDate: dataSelecionada,
+        selectedTime: horarioSelecionado,
+      });
+    }
+    catch (error) {
+      console.log(error)
+      if (error.response.status === 401) {
+        setMensagem('Não foi possivel realizar sua reserva, tente de novo')
+      }
+      else {
+        console.log(error)
+      }
+    }
   };
 
   return (
@@ -66,11 +90,11 @@ const Pagina = ({ route, navigation }) => {
           <View style={styles.circleBackgroundContainer}>
             <View style={styles.circleContainer}>
               {['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'].map((horario, index) => (
-                <TouchableOpacity 
-                  key={index} 
-                  style={styles.circle} 
+                <TouchableOpacity
+                  key={index}
+                  style={styles.circle}
                   onPress={() => aoClicarHorario(horario
-                    )}
+                  )}
                 >
                   <Text style={styles.circleText}>{horario}</Text>
                 </TouchableOpacity>
@@ -79,13 +103,12 @@ const Pagina = ({ route, navigation }) => {
           </View>
           <View style={styles.formContainer}>
             <Text style={styles.formTitle}>📝</Text>
-            <TextInput placeholder="Nome Completo" style={styles.input} value={nome} onChangeText={setNome} />
             <TextInput placeholder="Número de Pessoas" keyboardType="numeric" style={styles.input} value={numPessoas} onChangeText={aoMudarNumPessoas} />
             <TextInput placeholder="Telefone" keyboardType="phone-pad" style={styles.input} value={telefone} onChangeText={setTelefone} />
             <TouchableOpacity onPress={() => setMostrarDatePicker(true)}>
-              <TextInput 
-                placeholder="Data de Reserva" 
-                style={styles.input} 
+              <TextInput
+                placeholder="Data de Reserva"
+                style={styles.input}
                 value={dataSelecionada}
                 editable={false}
               />

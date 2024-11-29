@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 const reservations = [
-  { restaurante: "O'batista", data: '10/11/2024', hora: '22:00' },
-  { restaurante: "Pizzaria do João", data: '11/11/2024', hora: '19:30' },
-  { restaurante: "Churrascaria Fogo de Chão", data: '12/11/2024', hora: '20:00' },
+  { restaurante: "O'batista", data: '10/11/2024', hora: '22:00', numero_pessoas: '2', telefone: '(11) 62647-1147' },
+  { restaurante: "Pizzaria do João", data: '11/11/2024', hora: '19:30', numero_pessoas: '2', telefone: '(11) 82647-1147' },
+  { restaurante: "Churrascaria Fogo de Chão", data: '12/11/2024', hora: '20:00', numero_pessoas: '2', telefone: '(11) 72647-1147' },
 ];
 
 const Reserva = () => {
@@ -14,18 +14,24 @@ const Reserva = () => {
         <Text style={styles.headerText}>Restaurante</Text>
         <Text style={styles.headerText}>Data</Text>
         <Text style={styles.headerText}>Hora</Text>
+        <Text style={styles.headerText}>Número de pessoas</Text>
+        <Text style={styles.headerText}>Telefone</Text>
       </View>
       <ScrollView>
         {reservations.map((reservation, index) => (
           <View key={index} style={styles.row}>
             <Text style={styles.cell}>{reservation.restaurante}</Text>
+            <Text style={styles.cell}>{reservation.data}</Text>
+     
             <View style={styles.dateDeleteContainer}>
-              <Text style={styles.cell}>{reservation.data}</Text>
+
+            <Text style={styles.cell}>{reservation.hora}</Text>
               <TouchableOpacity>
                 <Text style={styles.deleteText}>Deletar</Text>
               </TouchableOpacity>
             </View>
-            <Text style={styles.cell}>{reservation.hora}</Text>
+            <Text style={styles.cell}>{reservation.numero_pessoas}</Text> 
+            <Text style={styles.cell}>{reservation.telefone}</Text> 
           </View>
         ))}
       </ScrollView>
@@ -50,7 +56,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 17,
+    fontSize: 14,
     color: 'black',
   },
   row: {
@@ -65,7 +71,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'normal',
     color: 'black',
-    fontSize: 15,
+    fontSize: 14,
   },
   dateDeleteContainer: {
     flex: 1,

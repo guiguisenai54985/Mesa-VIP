@@ -97,8 +97,10 @@ const useModel = {
         return result;
     },
 
-    createReserva: async ({telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user}) => {
-        const [result] = await connection.query('INSERT INTO `reserva`(`telefone`, `n_pessoas`, `hora`, `data_reserva`, `id_restaurante`, `id_user`) VALUES (?,?,?,?,?,?)', [telefone, n_pessoas, hora, data_reserva, id_restaurante, id_user]);
+    createReserva: async ({telefone, n_pessoas, id_hora, data_reserva, id_restaurante, id_user}) => {
+        const [hora] = await connection.query('SELECT `id` FROM `horario` WHERE `horario` = ?', [id_hora]);
+        id_hora = hora[0].id;
+        const [result] = await connection.query('INSERT INTO `reserva`(`telefone`, `n_pessoas`, `id_hora`, `data_reserva`, `id_restaurante`, `id_user`) VALUES (?,?,?,?,?,?)', [telefone, n_pessoas, id_hora, data_reserva, id_restaurante, id_user]);
         return result;
     },
 
