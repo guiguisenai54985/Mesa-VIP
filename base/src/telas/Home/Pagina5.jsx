@@ -34,8 +34,8 @@ const Pagina5 = ({ route, navigation }) => {
 
   const aoMudarNumPessoas = (valor) => {
     const num = parseInt(valor);
-    if (num > 5) {
-      Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 5.');
+    if (num > 10) {
+      Alert.alert('Limite excedido', 'O limite de pessoas para este restaurante é de 10.');
     } else {
       setNumPessoas(valor);
     }
